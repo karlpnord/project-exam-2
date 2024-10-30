@@ -5,7 +5,7 @@ import Links from "./Links";
 import NavCTAs from "./NavCTAs";
 import MobileNav from "./MobileNav";
 
-const DesktopNav = () => {
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
@@ -20,7 +20,7 @@ const DesktopNav = () => {
       ${
         scrolled
           ? "bg-whiteBg py-3 shadow-xl"
-          : "bg-neutral-950/0 py-6 shadow-none"
+          : "bg-whiteBg py-6 shadow-none"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
@@ -35,4 +35,4 @@ const DesktopNav = () => {
   );
 };
 
-export default DesktopNav;
+export default Navbar;
