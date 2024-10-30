@@ -1,4 +1,4 @@
-import { FC, ReactNode, Dispatch, SetStateAction, useState } from "react";
+import { ReactNode, Dispatch, SetStateAction, useState } from "react";
 import useMeasure from "react-use-measure";
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
@@ -6,11 +6,11 @@ import { FiChevronDown, FiArrowRight } from "react-icons/fi";
 interface MobileNavLinkProps {
   children: ReactNode;
   href: string;
-  FoldContent?: FC;
+  FoldContent?: () => JSX.Element;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNavLink: FC<MobileNavLinkProps> = ({ children, href, FoldContent, setMenuOpen }) => {
+const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: MobileNavLinkProps) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
