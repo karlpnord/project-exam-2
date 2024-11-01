@@ -7,19 +7,19 @@ import Reviews from '../../components/home/reviews/Reviews';
 import FAQ from '../../components/home/faq/FAQ';
 
 const Home = () => {
-	return (
-		<>
-			<main>
-				<Hero />
-				<Logos />
-				<Carousel />
-				<Features />
-				<Stats />
-				<Reviews />
-				<FAQ />
-			</main>
-		</>
-	);
+  return (
+    <>
+      <main>
+        <Hero />
+        <Logos />
+        <Carousel />
+        <Features />
+        <Stats />
+        <Reviews />
+        <FAQ />
+      </main>
+    </>
+  );
 };
 
 export default Home;
