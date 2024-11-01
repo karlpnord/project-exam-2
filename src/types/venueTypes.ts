@@ -1,7 +1,7 @@
 export interface ApiResponse {
   data: VenueData[];
   meta: MetaData;
-};
+}
 
 export interface MetaData {
   currentPage: number;

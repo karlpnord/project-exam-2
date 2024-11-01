@@ -1,6 +1,9 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
-const GenericColumn = ({title, links,}: {
+const GenericColumn = ({
+  title,
+  links,
+}: {
   title: string;
   links: { title: string; href: string; Icon?: IconType }[];
 }) => {

@@ -1,9 +1,9 @@
-import TranslateWrapper from "../../../utils/TranslateWrapper";
-import LogoItems from "./LogoItems";
+import TranslateWrapper from '../../../utils/TranslateWrapper';
+import LogoItems from './LogoItems';
 
 const Logos = () => {
   return (
-    <div className='bg-whiteBg'>
+    <div className="bg-whiteBg">
       <section className="mx-auto max-w-7xl overflow-hidden border-b border-borderClr py-6">
         <span className="mx-auto mb-9 block w-fit text-textLighter text-center text-lg font-poppins">
           Trusted by companies of all sizes

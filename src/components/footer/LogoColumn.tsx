@@ -1,4 +1,4 @@
-import Logo from "../header/Logo";
+import Logo from '../header/Logo';
 
 const LogoColumn = () => {
   return (

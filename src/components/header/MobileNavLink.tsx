@@ -1,7 +1,7 @@
-import { ReactNode, Dispatch, SetStateAction, useState } from "react";
-import useMeasure from "react-use-measure";
+import { ReactNode, Dispatch, SetStateAction, useState } from 'react';
+import useMeasure from 'react-use-measure';
 import { motion } from 'framer-motion';
-import { FiChevronDown, FiArrowRight } from "react-icons/fi";
+import { FiChevronDown, FiArrowRight } from 'react-icons/fi';
 
 interface MobileNavLinkProps {
   children: ReactNode;
@@ -10,7 +10,12 @@ interface MobileNavLinkProps {
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: MobileNavLinkProps) => {
+const MobileNavLink = ({
+  children,
+  href,
+  FoldContent,
+  setMenuOpen,
+}: MobileNavLinkProps) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
@@ -31,10 +36,10 @@ const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: MobileNavLi
             {children}
           </a>
           <motion.div
-            animate={{ rotate: open ? "180deg" : "0deg" }}
+            animate={{ rotate: open ? '180deg' : '0deg' }}
             transition={{
               duration: 0.3,
-              ease: "easeOut",
+              ease: 'easeOut',
             }}
           >
             <FiChevronDown />
@@ -57,9 +62,9 @@ const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: MobileNavLi
         <motion.div
           initial={false}
           animate={{
-            height: open ? height : "0px",
-            marginBottom: open ? "24px" : "0px",
-            marginTop: open ? "12px" : "0px",
+            height: open ? height : '0px',
+            marginBottom: open ? '24px' : '0px',
+            marginTop: open ? '12px' : '0px',
           }}
           className="overflow-hidden"
         >

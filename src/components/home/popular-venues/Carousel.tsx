@@ -1,11 +1,13 @@
-import useMeasure from "react-use-measure";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import Card from "./Card";
-import { usePosts } from "../../../hooks/usePosts";
-import { VenueData } from "../../../types/venueTypes";
-import Loader from "../../../utils/Loader";
-import PrevNextButtons from "./PrevNextButtons";
+import useMeasure from 'react-use-measure';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import Card from './Card';
+import { usePosts } from '../../../hooks/usePosts';
+import { VenueData } from '../../../types/venueTypes';
+import Loader from '../../../utils/Loader';
+import PrevNextButtons from './PrevNextButtons';
+
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const CARDS_AMOUNT = 10;
 
@@ -22,14 +24,16 @@ const Carousel = () => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
 
-  const { data, isLoading, isSuccess } = usePosts();
+  const { data, isLoading, isSuccess } = usePosts(
+    `${apiBaseUrl}/venues?_owner=true`
+  );
 
   let filteredVenues: VenueData[] = [];
-  
+
   if (isSuccess) {
     filteredVenues = [...data.data].slice(0, CARDS_AMOUNT);
   }
-  
+
   const CARD_BUFFER =
     width > BREAKPOINTS.lg ? 4 : width > BREAKPOINTS.sm ? 2 : 1;
 
@@ -61,7 +65,9 @@ const Carousel = () => {
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mb-12">
             <div className="space-y-3 flex justify-center">
-              <h2 className="text-4xl font-bold text-textDark">Popular Venues</h2>
+              <h2 className="text-4xl font-bold text-textDark">
+                Popular Venues
+              </h2>
             </div>
           </div>
 
@@ -73,7 +79,7 @@ const Carousel = () => {
                 x: offset,
               }}
               transition={{
-                ease: "easeInOut",
+                ease: 'easeInOut',
               }}
               className="grid"
               style={{
@@ -89,12 +95,16 @@ const Carousel = () => {
                     width: CARD_WIDTH,
                     marginRight: MARGIN,
                   }}
-                >
-                </Card>
+                ></Card>
               ))}
             </motion.div>
-          )} 
-          <PrevNextButtons shiftRight={CAN_SHIFT_RIGHT} shiftLeft={CAN_SHIFT_LEFT} onClickPrev={shiftLeft} onClickNext={shiftRight}/>
+          )}
+          <PrevNextButtons
+            shiftRight={CAN_SHIFT_RIGHT}
+            shiftLeft={CAN_SHIFT_LEFT}
+            onClickPrev={shiftLeft}
+            onClickNext={shiftRight}
+          />
         </div>
       </div>
     </section>

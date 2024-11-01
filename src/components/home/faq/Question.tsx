@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import useMeasure from "react-use-measure";
-import { FiChevronDown } from "react-icons/fi";
+import { motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
+import { FiChevronDown } from 'react-icons/fi';
 
 interface QuestionsProps {
   id: number;
@@ -15,7 +15,7 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
 
   return (
     <motion.div
-      animate={openId === id ? "open" : "closed"}
+      animate={openId === id ? 'open' : 'closed'}
       className="border-b-[1px] border-borderClr font-inter"
     >
       <button
@@ -25,10 +25,10 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
         <motion.span
           variants={{
             open: {
-              color: "#6633DE",
+              color: '#6633DE',
             },
             closed: {
-              color: "#262626",
+              color: '#262626',
             },
           }}
           className="text-left text-lg font-medium"
@@ -38,12 +38,12 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
         <motion.span
           variants={{
             open: {
-              rotate: "180deg",
-              color: "#6633DE",
+              rotate: '180deg',
+              color: '#6633DE',
             },
             closed: {
-              rotate: "0deg",
-              color: "#262626",
+              rotate: '0deg',
+              color: '#262626',
             },
           }}
         >
@@ -53,8 +53,8 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
       <motion.div
         initial={false}
         animate={{
-          height: openId === id ? height : "0px",
-          marginBottom: openId === id ? "24px" : "0px",
+          height: openId === id ? height : '0px',
+          marginBottom: openId === id ? '24px' : '0px',
         }}
         className="overflow-hidden text-textLight"
       >

@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { animate, useInView } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import { animate, useInView } from 'framer-motion';
 
 interface StatItemProps {
   num: number;
@@ -14,7 +14,7 @@ const StatItem = ({ num, suffix, decimals = 0, subheading }: StatItemProps) => {
 
   useEffect(() => {
     if (!isInView) return;
-    
+
     animate(0, num, {
       duration: 2.5,
       onUpdate(value) {

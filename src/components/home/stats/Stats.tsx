@@ -1,11 +1,12 @@
-import StatItem from "./StatItem";
+import StatItem from './StatItem';
 
 const Stats = () => {
   return (
     <div className="relative overflow-hidden border-y border-borderClr bg-defaultBg font-inter">
       <div className="relative z-20 mx-auto max-w-3xl px-4 py-20">
         <h2 className="mx-auto mb-9 block w-fit text-textDark text-center text-xl font-medium">
-          Building trust with <span className="text-secondary font-bold">every booking</span>
+          Building trust with{' '}
+          <span className="text-secondary font-bold">every booking</span>
         </h2>
 
         <div className="flex flex-col items-center justify-center sm:flex-row">

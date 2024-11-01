@@ -1,14 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { ApiResponse } from "../types/venueTypes";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { ApiResponse } from '../types/venueTypes';
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-
-export const usePosts = () => {
+export const usePosts = (url: string) => {
   return useQuery<ApiResponse>({
     queryKey: ['all-venues'],
     queryFn: async () => {
-      const { data } = await axios.get(`${apiBaseUrl}/venues?_owner=true`);
+      const { data } = await axios.get(url);
       return data;
     },
   });

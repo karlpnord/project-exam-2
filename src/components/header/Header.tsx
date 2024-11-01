@@ -1,9 +1,9 @@
-import DesktopNav from "./Navbar";
+import Navbar from './Navbar';
 
 const Header = () => {
   return (
     <header>
-      <DesktopNav />
+      <Navbar />
     </header>
   );
 };

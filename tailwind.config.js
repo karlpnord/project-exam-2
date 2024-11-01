@@ -7,6 +7,9 @@ export default {
       poppins: ['Poppins', 'sans-serif'],
     },
     extend: {
+      screens: {
+        xxl: '1440px',
+      },
       colors: {
         primary: '#3369DE',
         primaryContent: '#FFFFFF',

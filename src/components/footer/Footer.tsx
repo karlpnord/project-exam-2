@@ -1,7 +1,7 @@
-import MaxWidthWrapper from "../../utils/MaxWidthWrapper";
-import { SiInstagram, SiX, SiYoutube } from "react-icons/si";
-import GenericColumn from "./GenericColumn";
-import LogoColumn from "./LogoColumn";
+import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
+import { SiInstagram, SiX, SiYoutube } from 'react-icons/si';
+import GenericColumn from './GenericColumn';
+import LogoColumn from './LogoColumn';
 
 const Footer = () => {
   return (
@@ -12,24 +12,24 @@ const Footer = () => {
           title="Explore Holidaze"
           links={[
             {
-              title: "Home",
-              href: "/",
+              title: 'Home',
+              href: '/',
             },
             {
-              title: "Browse Venues",
-              href: "/",
+              title: 'Browse Venues',
+              href: '/',
             },
             {
-              title: "Become a Host",
-              href: "/",
+              title: 'Become a Host',
+              href: '/',
             },
             {
-              title: "How it works",
-              href: "/",
+              title: 'How it works',
+              href: '/',
             },
             {
-              title: "Contact us",
-              href: "/",
+              title: 'Contact us',
+              href: '/',
             },
           ]}
         />
@@ -37,24 +37,24 @@ const Footer = () => {
           title="Company Info"
           links={[
             {
-              title: "About us",
-              href: "/",
+              title: 'About us',
+              href: '/',
             },
             {
-              title: "Careers",
-              href: "/",
+              title: 'Careers',
+              href: '/',
             },
             {
-              title: "Press",
-              href: "/",
+              title: 'Press',
+              href: '/',
             },
             {
-              title: "Privacy Policy",
-              href: "/",
+              title: 'Privacy Policy',
+              href: '/',
             },
             {
-              title: "Terms & Conditions",
-              href: "/",
+              title: 'Terms & Conditions',
+              href: '/',
             },
           ]}
         />
@@ -62,18 +62,18 @@ const Footer = () => {
           title="Socials"
           links={[
             {
-              title: "Twitter",
-              href: "/#",
+              title: 'Twitter',
+              href: '/#',
               Icon: SiX,
             },
             {
-              title: "Instagram",
-              href: "/#",
+              title: 'Instagram',
+              href: '/#',
               Icon: SiInstagram,
             },
             {
-              title: "Youtube",
-              href: "/#",
+              title: 'Youtube',
+              href: '/#',
               Icon: SiYoutube,
             },
           ]}
@@ -82,12 +82,12 @@ const Footer = () => {
           title="Contact us"
           links={[
             {
-              title: "Email: support@holidaze.com",
-              href: "/#",
+              title: 'Email: support@holidaze.com',
+              href: '/#',
             },
             {
-              title: "Phone: +1 234 567 890",
-              href: "/#",
+              title: 'Phone: +1 234 567 890',
+              href: '/#',
             },
           ]}
         />
