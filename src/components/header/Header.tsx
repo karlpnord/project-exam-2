@@ -1,11 +1,11 @@
-import DesktopNav from "./Navbar";
+import Navbar from './Navbar';
 
 const Header = () => {
-  return (
-    <header>
-      <DesktopNav />
-    </header>
-  );
+	return (
+		<header>
+			<Navbar />
+		</header>
+	);
 };
 
 export default Header;
