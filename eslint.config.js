@@ -22,7 +22,7 @@ export default tseslint.config(
 			'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 			quotes: ['error', 'single'],
 			semi: ['error', 'always'],
-			indent: ['error', 2],
+			indent: ['error', 'tab'],
 		},
 	}
 );
