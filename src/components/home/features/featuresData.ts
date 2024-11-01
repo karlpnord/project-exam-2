@@ -19,7 +19,7 @@ const featuresData = [
 		icon: FaClock,
 		primary: 'text-[#5575DF]',
 		accent: 'bg-[#ACCDFF]',
-		gradient: `bg-gradient-to-r from-[#5575DF] to-[#ACCDFF]`,
+		gradient: 'bg-gradient-to-r from-[#5575DF] to-[#ACCDFF]',
 	},
 	{
 		title: 'Verified Listings',
@@ -28,7 +28,7 @@ const featuresData = [
 		icon: FaLock,
 		primary: 'text-[#DD8A41]',
 		accent: 'bg-[#FFE0C5]',
-		gradient: `bg-gradient-to-r from-[#DD8A41] to-[#FFE0C5]`,
+		gradient: 'bg-gradient-to-r from-[#DD8A41] to-[#FFE0C5]',
 	},
 	{
 		title: 'Variety of Venues',
@@ -37,7 +37,7 @@ const featuresData = [
 		icon: FaHouseChimney,
 		primary: 'text-[#54CE2E]',
 		accent: 'bg-[#AEFF96]',
-		gradient: `bg-gradient-to-r from-[#54CE2E] to-[#AEFF96]`,
+		gradient: 'bg-gradient-to-r from-[#54CE2E] to-[#AEFF96]',
 	},
 	{
 		title: 'List your Venues',
@@ -46,7 +46,7 @@ const featuresData = [
 		icon: FaBook,
 		primary: 'text-[#CE2727]',
 		accent: 'bg-[#FFA8A8]',
-		gradient: `bg-gradient-to-r from-[#CE2727] to-[#FFA8A8]`,
+		gradient: 'bg-gradient-to-r from-[#CE2727] to-[#FFA8A8]',
 	},
 	{
 		title: '24/7 Support',
@@ -55,7 +55,7 @@ const featuresData = [
 		icon: FaHeadphones,
 		primary: 'text-[#8331DB]',
 		accent: 'bg-[#D1A6FF]',
-		gradient: `bg-gradient-to-r from-[#8331DB] to-[#D1A6FF]`,
+		gradient: 'bg-gradient-to-r from-[#8331DB] to-[#D1A6FF]',
 	},
 	{
 		title: 'Advanced Search',
@@ -64,7 +64,7 @@ const featuresData = [
 		icon: FaMagnifyingGlass,
 		primary: 'text-[#C93E9B]',
 		accent: 'bg-[#FFACE3]',
-		gradient: `bg-gradient-to-r from-[#C93E9B] to-[#FFACE3]`,
+		gradient: 'bg-gradient-to-r from-[#C93E9B] to-[#FFACE3]',
 	},
 ];
 
