@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { VenueData } from '../../types/venueTypes';
 import CardImage from '../venue-card/CardImage';
 import CardInfo from '../venue-card/CardInfo';
@@ -17,10 +16,7 @@ const VenueCard = ({
   lastVenueElementRef,
 }: VenueCardProps) => {
   return (
-    <motion.a
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.25, ease: 'easeInOut', delay: 0.25 }}
+    <a
       key={venue.id}
       className="max-w-80 cursor-pointer shadow-md hover:shadow-lg hover:scale-95 transition"
       ref={isLastElement ? lastVenueElementRef : null}
@@ -35,7 +31,7 @@ const VenueCard = ({
       />
       <CardFacilities meta={venue.meta} maxGuests={venue.maxGuests} />
       <CardRealtor name={venue.owner.name} email={venue.owner.email} />
-    </motion.a>
+    </a>
   );
 };
 
