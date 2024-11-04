@@ -2,6 +2,7 @@ import { ReactNode, Dispatch, SetStateAction, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 interface MobileNavLinkProps {
   children: ReactNode;
@@ -26,15 +27,15 @@ const MobileNavLink = ({
           className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl font-semibold hover:text-textDark"
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
-          <a
+          <Link
             onClick={(e) => {
               e.stopPropagation();
               setMenuOpen(false);
             }}
-            href={href}
+            to={href}
           >
             {children}
-          </a>
+          </Link>
           <motion.div
             animate={{ rotate: open ? '180deg' : '0deg' }}
             transition={{
@@ -46,17 +47,17 @@ const MobileNavLink = ({
           </motion.div>
         </div>
       ) : (
-        <a
+        <Link
           onClick={(e) => {
             e.stopPropagation();
             setMenuOpen(false);
           }}
-          href="#"
+          to={href}
           className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl font-semibold hover:text-textDark"
         >
           <span>{children}</span>
           <FiArrowRight />
-        </a>
+        </Link>
       )}
       {FoldContent && (
         <motion.div
