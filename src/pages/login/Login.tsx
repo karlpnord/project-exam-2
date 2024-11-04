@@ -1,14 +1,14 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
 import image from '../../assets/image-2.png';
-import RegisterForm from '../../components/forms/RegisterForm';
+import LoginForm from '../../components/forms/LoginForm';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Register = () => {
+const Login = () => {
   return (
     <main className="flex-1 bg-whiteBg font-inter">
       <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-12 pt-24 md:pb-36 md:pt-36">
-        <div className="bg-foreground rounded-md shadow-md overflow-hidden px-6 py-8 w-full max-w-[540px] lg:min-h-[700px] lg:max-w-7xl lg:flex lg:p-0">
+        <div className="bg-foreground rounded-md shadow-md overflow-hidden lg:min-h-[700px] px-6 py-8 w-full max-w-[540px] lg:max-w-7xl lg:flex lg:p-0">
           <figure className="hidden lg:flex lg:w-1/2 flex-shrink-0">
             <div className="relative w-full aspect-ratio aspect-ratio-16/9">
               <img
@@ -28,16 +28,16 @@ const Register = () => {
           >
             <div>
               <h1 className="text-4xl text-textDark font-semibold mb-1">
-                Create an account
+                Welcome back!
               </h1>
               <h2 className="text-textLight text-sm">
-                Already have an account?{' '}
-                <Link to="/sign-in" className="underline text-secondary">
-                  Log in
+                Don't have an account?{' '}
+                <Link to="/sign-up" className="underline text-secondary">
+                  Register
                 </Link>
               </h2>
             </div>
-            <RegisterForm />
+            <LoginForm />
           </motion.div>
         </div>
       </MaxWidthWrapper>
@@ -45,4 +45,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

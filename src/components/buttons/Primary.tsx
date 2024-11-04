@@ -10,7 +10,7 @@ const Primary = ({ children, className = '' }: Props) => {
   return (
     <button
       className={twMerge(
-        'bg-primary text-primaryContent px-4 py-2 rounded-md text-lg font-medium font-inter hover:bg-primaryDark transition-all',
+        'bg-primary text-primaryContent px-4 py-2 rounded-md text-lg font-medium font-inter hover:bg-primaryLight transition-all',
         className
       )}
     >
