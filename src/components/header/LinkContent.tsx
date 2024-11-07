@@ -25,7 +25,7 @@ const VenueContent = () => {
             My Venues
           </Link>
           <Link
-            to="/"
+            to="/add-venue"
             className="flex gap-1 items-center border-b border-borderClr pb-2 hover:text-textDark transition-all"
           >
             <FaHouseChimneyMedical />
