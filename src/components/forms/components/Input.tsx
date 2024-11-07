@@ -7,6 +7,7 @@ interface InputProps {
   placeholder: string;
   register: UseFormRegisterReturn;
   error?: string;
+  hidden?: boolean;
 }
 
 const Input = ({
@@ -16,14 +17,18 @@ const Input = ({
   placeholder,
   register,
   error,
+  hidden = true,
 }: InputProps) => {
   return (
     <div>
-      <label htmlFor={id} className="hidden">
+      <label
+        htmlFor={id}
+        className={hidden ? 'hidden' : 'text-textDark font-semibold text-sm'}
+      >
         {label}
       </label>
       <input
-        className="border border-borderClr pl-4 pr-2 py-3 w-full rounded-md focus:outline-none focus:ring focus:ring-primary"
+        className={`${error ? 'border-error' : 'border-borderClr'} bg-white border border-borderClr pl-4 pr-2 py-3 w-full rounded-md focus:outline-none focus:border-2 focus:border-primary`}
         id={id}
         type={type}
         placeholder={placeholder}
