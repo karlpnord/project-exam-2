@@ -1,24 +1,22 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-interface InputProps {
+interface TextareaProps {
   label: string;
   id: string;
-  type: string;
   placeholder: string;
   register: UseFormRegisterReturn;
   error?: string;
   hidden?: boolean;
 }
 
-const Input = ({
+const Textarea = ({
   label,
   id,
-  type,
   placeholder,
   register,
   error,
   hidden = true,
-}: InputProps) => {
+}: TextareaProps) => {
   return (
     <div>
       <label
@@ -27,10 +25,9 @@ const Input = ({
       >
         {label}
       </label>
-      <input
+      <textarea
         className={`${error ? 'border-error' : 'border-borderClr'} bg-white border border-borderClr pl-4 pr-2 py-3 w-full rounded-md focus:outline-none focus:border-2 focus:border-primary`}
         id={id}
-        type={type}
         placeholder={placeholder}
         {...register}
       />
@@ -39,4 +36,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default Textarea;
