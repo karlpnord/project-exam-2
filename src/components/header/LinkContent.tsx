@@ -18,7 +18,7 @@ const VenueContent = () => {
             All Venues
           </Link>
           <Link
-            to="/"
+            to="/my-venues"
             className="flex gap-1 items-center border-b border-borderClr pb-2 hover:text-textDark transition-all"
           >
             <FaHouseChimneyUser />
@@ -44,7 +44,7 @@ export const LINKS = [
   },
   {
     text: 'Venues',
-    href: '#',
+    href: '/all-venues',
     component: VenueContent,
   },
   {

@@ -5,6 +5,7 @@ import AllVenues from './pages/all-venues/AllVenues';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import AddVenue from './pages/add-venue/AddVenue';
+import MyVenues from './pages/my-venues/MyVenues';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/add-venue" element={<AddVenue />} />
+        <Route path="/my-venues" element={<MyVenues />} />
       </Route>
     </Routes>
   );
