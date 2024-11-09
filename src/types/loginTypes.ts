@@ -15,6 +15,7 @@ export interface LoginResponseData {
   avatar: Avatar;
   banner: Banner;
   accessToken: string;
+  venueManager: boolean;
 }
 
 interface Avatar {
