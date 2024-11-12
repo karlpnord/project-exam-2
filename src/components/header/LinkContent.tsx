@@ -53,10 +53,10 @@ export const LINKS = [
   },
   {
     text: 'Contact',
-    href: '#',
+    href: '/contact',
   },
   {
     text: 'About',
-    href: '#',
+    href: '/about',
   },
 ];
