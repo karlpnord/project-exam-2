@@ -5,9 +5,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   clickHandler?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const DefaultNoBg = ({ children, className = '', clickHandler }: Props) => {
+const DefaultNoBg = ({
+  children,
+  className = '',
+  clickHandler,
+  type = 'button',
+}: Props) => {
   return (
     <button
       className={twMerge(
@@ -15,6 +21,7 @@ const DefaultNoBg = ({ children, className = '', clickHandler }: Props) => {
         className
       )}
       onClick={clickHandler}
+      type={type}
     >
       {children}
     </button>
