@@ -10,7 +10,8 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useDeleteVenue } from '../../hooks/useDeleteVenue';
 import DeleteVenueModal from './DeleteVenueModal';
-import DeleteNotification from './DeleteNotification';
+import SuccessNotification from './SuccessNotification';
+import UpdateVenueModal from './UpdateVenueModal';
 import Loader from '../../utils/Loader';
 
 interface Props {
@@ -23,9 +24,14 @@ const MyVenuesContent = ({ user }: Props) => {
   const [viewBookings, setViewBookings] = useState<{ [key: string]: boolean }>(
     {}
   );
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState<boolean>(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
   const [venueId, setVenueId] = useState<string>('');
+  const [selectedVenue, setSelectedVenue] = useState<VenueData>(
+    {} as VenueData
+  );
   const [notificationText, setNotificationText] = useState<string | null>(null);
+  const [updateSuccess, setUpdateSuccess] = useState<boolean>(false);
 
   const { data, isSuccess, isLoading } = usePostsAuthenticated(
     `${apiBaseUrl}/profiles/${user?.name}/venues?_bookings=true`,
@@ -41,8 +47,13 @@ const MyVenuesContent = ({ user }: Props) => {
     }));
   };
 
+  const handleUpdate = (venue: VenueData) => {
+    setSelectedVenue(venue);
+    setIsUpdateModalOpen(true);
+  };
+
   const handleDelete = (venueId: string) => {
-    setIsModalOpen(true);
+    setIsDeleteModalOpen(true);
     setVenueId(venueId);
   };
 
@@ -51,7 +62,7 @@ const MyVenuesContent = ({ user }: Props) => {
       deleteVenue(venueId, {
         onSuccess: () => {
           setNotificationText('Venue deleted successfully!');
-          setIsModalOpen(false);
+          setIsDeleteModalOpen(false);
         },
         onError: () => {
           setNotificationText('Failed to delete the venue!');
@@ -65,7 +76,7 @@ const MyVenuesContent = ({ user }: Props) => {
       <div className="text-center">
         <h1 className="text-4xl font-bold text-textDark">My Venues</h1>
       </div>
-      {isLoading && <Loader />}
+      {isLoading && <Loader className="mt-12" />}
       {isSuccess && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -96,6 +107,7 @@ const MyVenuesContent = ({ user }: Props) => {
                 toggleViewBookings={() => toggleViewBookings(venue.id)}
                 isViewingBookings={viewBookings[venue.id] || false}
                 handleDelete={() => handleDelete(venue.id)}
+                handleUpdate={() => handleUpdate(venue)}
               />
               <AnimatePresence>
                 {viewBookings[venue.id] && (
@@ -114,16 +126,29 @@ const MyVenuesContent = ({ user }: Props) => {
           ))}
         </motion.div>
       )}
-      {isModalOpen && (
+      {isDeleteModalOpen && (
         <DeleteVenueModal
-          setIsModalOpen={setIsModalOpen}
+          setIsModalOpen={setIsDeleteModalOpen}
           confirmDelete={confirmDelete}
         />
       )}
       {notificationText && (
-        <DeleteNotification
+        <SuccessNotification
           text={notificationText}
           removeNotif={() => setNotificationText(null)}
+        />
+      )}
+      {isUpdateModalOpen && (
+        <UpdateVenueModal
+          venueData={selectedVenue}
+          setIsModalOpen={setIsUpdateModalOpen}
+          setUpdateSuccess={setUpdateSuccess}
+        />
+      )}
+      {updateSuccess && (
+        <SuccessNotification
+          text="Venue updated successfully!"
+          removeNotif={() => setUpdateSuccess(false)}
         />
       )}
     </>
