@@ -12,7 +12,7 @@ const NavCTAs = () => {
         <Link
           to="/"
           onClick={logout}
-          className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryLight transition"
+          className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition"
         >
           Logout
         </Link>
@@ -26,7 +26,7 @@ const NavCTAs = () => {
           </Link>
           <Link
             to="/sign-in"
-            className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryLight transition"
+            className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition"
           >
             Sign in
           </Link>
