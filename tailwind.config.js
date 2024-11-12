@@ -33,6 +33,10 @@ export default {
         error: '#DE3333',
         errorContent: '#FFFFFF',
       },
+      zIndex: {
+        90: '90',
+        100: '100',
+      },
     },
   },
   plugins: [],
