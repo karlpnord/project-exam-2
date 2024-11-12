@@ -157,7 +157,7 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           </div>
         </div>
       </div>
-      <Primary>Submit Venue</Primary>
+      <Primary type={'submit'}>Submit Venue</Primary>
       {isError && (
         <div className="text-errorContent bg-error text-sm p-3 rounded-md">
           {`${errorMessage}! Please go to profile settings to become a venue manager! `}
