@@ -8,7 +8,7 @@ const MyVenues = () => {
 
   return (
     <main className="flex-1">
-      <MaxWidthWrapper className="relative z-20 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
+      <MaxWidthWrapper className="pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
         {(!user || !user.venueManager) && <MyVenuesErrorContent user={user} />}
         {user && user.venueManager && <MyVenuesContent user={user} />}
       </MaxWidthWrapper>
