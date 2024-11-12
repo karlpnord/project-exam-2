@@ -6,6 +6,8 @@ import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import AddVenue from './pages/add-venue/AddVenue';
 import MyVenues from './pages/my-venues/MyVenues';
+import Contact from './pages/contact/Contact';
+import About from './pages/about/About';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/sign-in" element={<Login />} />
         <Route path="/add-venue" element={<AddVenue />} />
         <Route path="/my-venues" element={<MyVenues />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Route>
     </Routes>
   );
