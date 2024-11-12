@@ -6,12 +6,14 @@ interface Props {
   toggleViewBookings: () => void;
   isViewingBookings: boolean;
   handleDelete: () => void;
+  handleUpdate: () => void;
 }
 
 const CardInteractions = ({
   toggleViewBookings,
   isViewingBookings,
   handleDelete,
+  handleUpdate,
 }: Props) => {
   return (
     <motion.div
@@ -37,7 +39,11 @@ const CardInteractions = ({
       </button>
       <div className="flex gap-2">
         <button>
-          <FaArrowsRotate size={18} className="text-textLight" />
+          <FaArrowsRotate
+            size={18}
+            className="text-primary"
+            onClick={handleUpdate}
+          />
         </button>
         <button>
           <MdDelete size={22} className="text-error" onClick={handleDelete} />
