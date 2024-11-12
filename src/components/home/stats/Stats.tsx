@@ -1,8 +1,18 @@
 import StatItem from './StatItem';
+import { twMerge } from 'tailwind-merge';
 
-const Stats = () => {
+interface Props {
+  className?: string;
+}
+
+const Stats = ({ className = '' }: Props) => {
   return (
-    <div className="relative overflow-hidden border-y border-borderClr bg-defaultBg font-inter">
+    <div
+      className={twMerge(
+        'relative overflow-hidden border-y bg-defaultBg border-borderClr font-inter',
+        className
+      )}
+    >
       <div className="relative z-20 mx-auto max-w-3xl px-4 py-20">
         <h2 className="mx-auto mb-9 block w-fit text-textDark text-center text-xl font-medium">
           Building trust with{' '}

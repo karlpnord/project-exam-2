@@ -26,7 +26,7 @@ const StatItem = ({ num, suffix, decimals = 0, subheading }: StatItemProps) => {
 
   return (
     <div className="flex w-72 flex-col items-center py-8 sm:py-0">
-      <p className="mb-2 text-center text-7xl font-semibold text-textDark sm:text-6xl">
+      <p className="mb-2 text-center text-4xl font-semibold text-textDark sm:text-5xl">
         <span ref={ref}></span>
         <span className="text-primary">{suffix}</span>
       </p>
