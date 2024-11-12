@@ -5,8 +5,8 @@ import LogoColumn from './LogoColumn';
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden py-12 bg-defaultBg font-inter border-t border-borderClr">
-      <MaxWidthWrapper className="relative z-20 grid grid-cols-12 gap-x-1.5 gap-y-6">
+    <footer className="relative z-50 overflow-hidden py-12 bg-defaultBg font-inter border-t border-borderClr">
+      <MaxWidthWrapper className="relative z-50 grid grid-cols-12 gap-x-1.5 gap-y-6">
         <LogoColumn />
         <GenericColumn
           title="Explore Holidaze"

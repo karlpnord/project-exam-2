@@ -83,7 +83,7 @@ const RegisterForm = () => {
           Registered successfully
         </div>
       )}
-      <Primary className={'w-full mt-4'}>
+      <Primary className={'w-full mt-4'} type={'submit'}>
         {isPending ? 'Registering...' : 'Create Account'}
       </Primary>
       <ExtraDetails>Or register with</ExtraDetails>

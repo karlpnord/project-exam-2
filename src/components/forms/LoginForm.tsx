@@ -82,7 +82,7 @@ const LoginForm = () => {
           Logged in successfully
         </div>
       )}
-      <Primary className={'w-full mt-4'}>
+      <Primary className={'w-full mt-4'} type={'submit'}>
         {isPending ? 'Signing in...' : 'Sign in'}
       </Primary>
       <ExtraDetails>Or login with</ExtraDetails>

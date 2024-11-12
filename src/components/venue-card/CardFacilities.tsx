@@ -32,7 +32,7 @@ const CardFacilities = ({ meta, maxGuests }: Props) => {
         </div>
         <div className="flex items-center gap-1 text-textDark">
           <span className="text-textLight text-sm">{maxGuests}</span>
-          <FaUserLarge />
+          <FaUserLarge className="text-textLight" />
         </div>
       </div>
     </div>

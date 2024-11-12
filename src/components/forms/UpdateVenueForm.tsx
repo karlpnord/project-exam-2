@@ -1,42 +1,77 @@
+import { VenueData } from '../../types/venueTypes';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  AddVenueFormProps,
+  addVenueFormSchema,
+} from './validations/addVenueFormSchema';
 import Input from './components/Input';
 import Textarea from './components/Textarea';
 import Checkbox from './components/Checkbox';
 import { FaWifi, FaSquareParking, FaUtensils, FaDog } from 'react-icons/fa6';
 import Primary from '../buttons/Primary';
-import { AddVenueFormProps } from './validations/addVenueFormSchema';
-import { useAddVenue } from '../../hooks/useAddVenue';
-import { useState } from 'react';
-import { AxiosError } from 'axios';
 import { useTransformFormData } from '../../hooks/useTransformFormData';
+import { useUpdateVenue } from '../../hooks/useUpdateVenue';
+import { useAuth } from '../../hooks/useAuth';
 
 interface Props {
-  register: any;
-  handleSubmit: any;
-  errors: any;
-  venueData: AddVenueFormProps;
+  currentData: VenueData;
+  closeModal: () => void;
+  isExiting: (value: boolean) => void;
+  setUpdateSuccess: (value: boolean) => void;
 }
 
-interface ApiError {
-  errors: { message: string }[];
-}
+const UpdateVenueForm = ({
+  currentData,
+  closeModal,
+  isExiting,
+  setUpdateSuccess,
+}: Props) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<AddVenueFormProps>({
+    defaultValues: {
+      name: currentData.name,
+      description: currentData.description,
+      price: currentData.price,
+      maxGuests: currentData.maxGuests,
+      url: currentData.media[0]?.url,
+      address: currentData.location?.address,
+      city: currentData.location?.city,
+      country: currentData.location?.country,
+      wifi: currentData.meta?.wifi,
+      parking: currentData.meta?.parking,
+      breakfast: currentData.meta?.breakfast,
+      pets: currentData.meta?.pets,
+    },
+    resolver: yupResolver(addVenueFormSchema),
+  });
 
-const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
-  const { mutate, isError, isSuccess } = useAddVenue();
-  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
-  const formData = useTransformFormData(venueData);
+  const { user } = useAuth();
+  const { mutate } = useUpdateVenue(user?.accessToken);
+
+  const formData = watch();
+  const updatedData = useTransformFormData(formData);
 
   const onSubmit = () => {
-    mutate(formData, {
-      onError: (error: AxiosError<ApiError>) => {
-        setErrorMessage(error.response?.data?.errors[0]?.message);
-      },
-    });
+    mutate(
+      { venueId: currentData.id, formData: updatedData },
+      {
+        onSuccess: () => {
+          closeModal();
+          setUpdateSuccess(true);
+        },
+      }
+    );
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-8 max-w-[600px]"
+      className="flex flex-col gap-8 max-w-[600px] pr-4"
     >
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-medium text-textLight">
@@ -130,46 +165,48 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
               label={<FaWifi size={20} />}
               id={'wifi'}
               register={register('wifi')}
-              checked={venueData.wifi || false}
+              checked={formData.wifi || false}
               error={errors.wifi?.message}
             />
             <Checkbox
               label={<FaSquareParking size={20} />}
               id={'parking'}
               register={register('parking')}
-              checked={venueData.parking || false}
+              checked={formData.parking || false}
               error={errors.parking?.message}
             />
             <Checkbox
               label={<FaUtensils size={20} />}
               id={'breakfast'}
               register={register('breakfast')}
-              checked={venueData.breakfast || false}
+              checked={formData.breakfast || false}
               error={errors.breakfast?.message}
             />
             <Checkbox
               label={<FaDog size={20} />}
               id={'pets'}
               register={register('pets')}
-              checked={venueData.pets || false}
+              checked={formData.pets || false}
               error={errors.pets?.message}
             />
           </div>
         </div>
       </div>
-      <Primary type={'submit'}>Submit Venue</Primary>
-      {isError && (
-        <div className="text-errorContent bg-error text-sm p-3 rounded-md">
-          {`${errorMessage}! Please go to profile settings to become a venue manager! `}
-        </div>
-      )}
-      {isSuccess && (
-        <div className="text-successContent bg-success text-sm p-3 rounded-md">
-          Your venue was successfully added!
-        </div>
-      )}
+      <div className="flex gap-4 mt-4">
+        <Primary type={'submit'}>Update Venue</Primary>
+        <button
+          type="button"
+          className="bg-whiteBg text-textDark px-4 py-2 rounded-md text-lg font-medium font-inter hover:bg-defaultBg transition-all"
+          onClick={() => {
+            closeModal();
+            isExiting(true);
+          }}
+        >
+          Close
+        </button>
+      </div>
     </form>
   );
 };
 
-export default AddVenueForm;
+export default UpdateVenueForm;

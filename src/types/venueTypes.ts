@@ -26,6 +26,7 @@ export interface VenueData {
   meta: VenueMeta;
   location: Location;
   owner: Owner;
+  bookings?: Booking[];
 }
 
 export interface Media {
@@ -56,4 +57,17 @@ export interface Owner {
   bio: string;
   email: string;
   name: string;
+}
+
+export interface Booking {
+  created: string;
+  customer: {
+    name: string;
+    email: string;
+  };
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  id: string;
+  updated: string;
 }
