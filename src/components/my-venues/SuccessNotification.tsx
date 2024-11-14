@@ -25,7 +25,7 @@ const SuccessNotification = ({ text, removeNotif }: Props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="p-4 w-80 flex items-start rounded-lg gap-2 text-sm font-medium shadow-lg text-white bg-success fixed z-50 bottom-10 right-4 md:right-12 font-inter"
+      className="p-4 w-80 flex items-start rounded-lg gap-2 text-sm font-medium shadow-lg text-white bg-success fixed z-100 bottom-10 right-4 md:right-12 font-inter"
     >
       <span className="text-successContent">{text}</span>
       <button onClick={() => removeNotif()} className="ml-auto mt-0.5">
