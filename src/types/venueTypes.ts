@@ -3,6 +3,10 @@ export interface ApiResponse {
   meta: MetaData;
 }
 
+export interface SingleVenueResponse {
+  data: VenueData;
+}
+
 export interface MetaData {
   currentPage: number;
   isFirstPage: boolean;
