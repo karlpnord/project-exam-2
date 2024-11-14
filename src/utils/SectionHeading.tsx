@@ -1,9 +1,9 @@
 interface SectionHeadingProps {
   heading: string;
-  subheading: string;
+  subheading?: string;
 }
 
-const SectionHeading = ({ heading, subheading }: SectionHeadingProps) => {
+const SectionHeading = ({ heading, subheading = '' }: SectionHeadingProps) => {
   return (
     <div className="mb-6 flex flex-col items-center text-center">
       <h2 className="text-4xl md:text-5xl mb-2 font-bold text-textDark">
