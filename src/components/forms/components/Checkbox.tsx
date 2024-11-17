@@ -8,6 +8,7 @@ interface CheckboxProps {
   checked?: boolean;
   error?: string;
   disabled?: boolean;
+  labelStyle?: string;
 }
 
 const Checkbox = ({
@@ -17,6 +18,7 @@ const Checkbox = ({
   checked,
   error,
   disabled = false,
+  labelStyle = 'text-[10px] text-textLight',
 }: CheckboxProps) => {
   return (
     <div className="flex flex-col text-textLight">
@@ -39,7 +41,7 @@ const Checkbox = ({
         </div>
         <label
           htmlFor={id}
-          className={`ml-2 text-textLight text-[10px] ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+          className={`ml-2 ${labelStyle} ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
         >
           {label}
         </label>

@@ -49,7 +49,7 @@ export const LINKS = [
   },
   {
     text: 'Profile',
-    href: '#',
+    href: '/profile',
   },
   {
     text: 'Contact',
