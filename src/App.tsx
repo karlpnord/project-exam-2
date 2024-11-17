@@ -9,6 +9,7 @@ import MyVenues from './pages/my-venues/MyVenues';
 import Contact from './pages/contact/Contact';
 import About from './pages/about/About';
 import SingleVenue from './pages/single-venue/SingleVenue';
+import Profile from './pages/profile/Profile';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/venues/:venueId" element={<SingleVenue />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>
   );
