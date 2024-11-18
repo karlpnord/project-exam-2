@@ -20,16 +20,9 @@ const Card = ({ data, className, style = {} }: CardProps) => {
         className
       )}
       style={style}
-      initial={{
-        filter: 'blur(2px)',
-      }}
-      whileInView={{
-        filter: 'blur(0px)',
-      }}
       transition={{
         duration: 0.3,
         ease: 'easeInOut',
-        delay: 0.25,
       }}
       whileHover={{
         scale: 0.97,
