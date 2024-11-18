@@ -23,7 +23,7 @@ const MobileNav = () => {
             animate={{ x: 0 }}
             exit={{ x: '100vw' }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="fixed left-0 top-0 flex h-screen w-full flex-col bg-whiteBg"
+            className="fixed z-100 left-0 top-0 flex h-screen w-full flex-col bg-whiteBg"
           >
             <div className="flex items-center justify-between p-6">
               <Logo />

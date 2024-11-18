@@ -1,22 +1,19 @@
-import { ReactNode, Dispatch, SetStateAction, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-interface MobileNavLinkProps {
+interface Props {
   children: ReactNode;
   href: string;
-  FoldContent?: () => JSX.Element;
-  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+  FoldContent?: (props: {
+    setMenuOpen: (open: boolean) => void;
+  }) => JSX.Element;
+  setMenuOpen: (open: boolean) => void;
 }
 
-const MobileNavLink = ({
-  children,
-  href,
-  FoldContent,
-  setMenuOpen,
-}: MobileNavLinkProps) => {
+const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: Props) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
@@ -70,7 +67,7 @@ const MobileNavLink = ({
           className="overflow-hidden"
         >
           <div ref={ref}>
-            <FoldContent />
+            <FoldContent setMenuOpen={setMenuOpen} />
           </div>
         </motion.div>
       )}
