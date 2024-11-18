@@ -1,6 +1,5 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
 import { useAuth } from '../../hooks/useAuth';
-import MyVenuesErrorContent from '../../components/my-venues/MyVenuesErrorContent';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Tabs from '../../components/profile/Tabs';
@@ -8,6 +7,7 @@ import ProfileTabContent from '../../components/profile/ProfileTabContent';
 import BookingsTabContent from '../../components/profile/BookingsTabContent';
 import SettingsTabContent from '../../components/profile/SettingsTabContent';
 import Logo from '../../components/header/Logo';
+import UserError from '../../utils/UserError';
 
 type ActiveTab = 'profile' | 'bookings' | 'settings';
 
@@ -22,7 +22,14 @@ const Profile = () => {
   return (
     <main className="flex-1 font-inter">
       <MaxWidthWrapper className="flex flex-col gap-8 px-0 sm:px-6 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
-        {!user && <MyVenuesErrorContent user={user} />}
+        {!user && (
+          <UserError
+            user={user}
+            loginErrorMsg={
+              'You have to be signed in to view your profile! Click below to sign in.'
+            }
+          />
+        )}
         {user && (
           <div className="flex flex-col border border-borderClr rounded-md overflow-hidden">
             <div className="flex flex-col w-full bg-foreground text-textDark p-4 border-b border-borderClr">
