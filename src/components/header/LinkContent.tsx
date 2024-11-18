@@ -3,7 +3,7 @@ import {
   FaHouseChimneyMedical,
   FaHouseChimneyUser,
 } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   setMenuOpen?: (open: boolean) => void;
@@ -19,31 +19,55 @@ const VenueContent = ({ setMenuOpen }: Props) => {
   return (
     <div className="w-full p-4 shadow-none border-b border-borderClr lg:w-[250px] lg:shadow-md lg:border-0">
       <div className="grid grid-cols-2 lg:grid-cols-1">
-        <div className="space-y-2 text-textLight font-medium">
-          <Link
+        <div className="space-y-2">
+          <NavLink
             to="/all-venues"
-            className="flex gap-1 rounded-md items-center p-2 hover:text-textDark hover:bg-foreground transition-all"
             onClick={handleClick}
+            className={({ isActive }) => {
+              return (
+                'flex gap-1 rounded-md items-center p-2 font-medium hover:bg-foreground transition-all' +
+                ' ' +
+                (isActive
+                  ? 'text-secondary'
+                  : 'text-textLight hover:text-textDark')
+              );
+            }}
           >
             <FaHouse />
             All Venues
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/my-venues"
-            className="flex gap-1 rounded-md items-center p-2 hover:text-textDark hover:bg-foreground transition-all"
             onClick={handleClick}
+            className={({ isActive }) => {
+              return (
+                'flex gap-1 rounded-md items-center p-2 font-medium hover:bg-foreground transition-all' +
+                ' ' +
+                (isActive
+                  ? 'text-secondary'
+                  : 'text-textLight hover:text-textDark')
+              );
+            }}
           >
             <FaHouseChimneyUser />
             My Venues
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/add-venue"
-            className="flex gap-1 rounded-md items-center p-2 hover:text-textDark hover:bg-foreground transition-all"
             onClick={handleClick}
+            className={({ isActive }) => {
+              return (
+                'flex gap-1 rounded-md items-center p-2 hover:bg-foreground transition-all' +
+                ' ' +
+                (isActive
+                  ? 'text-secondary font-bold'
+                  : 'text-textLight hover:text-textDark font-medium')
+              );
+            }}
           >
             <FaHouseChimneyMedical />
             Add Venue
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

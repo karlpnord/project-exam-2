@@ -1,6 +1,6 @@
 import { useState, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface Props {
   }) => JSX.Element;
 }
 
-const NavLink = ({ children, href, FlyoutContent }: Props) => {
+const NavLinks = ({ children, href, FlyoutContent }: Props) => {
   const [open, setOpen] = useState(false);
 
   const showFlyout = FlyoutContent && open;
@@ -21,12 +21,20 @@ const NavLink = ({ children, href, FlyoutContent }: Props) => {
       onMouseLeave={() => setOpen(false)}
       className="relative h-fit w-fit"
     >
-      <Link
+      <NavLink
         to={href}
-        className="relative text-textLight hover:text-textDark font-inter"
+        className={({ isActive }) => {
+          return (
+            'relative font-inter' +
+            ' ' +
+            (isActive
+              ? 'text-secondary bg-secondaryLight bg-opacity-10 font-semibold py-2 px-4 rounded-md'
+              : 'text-textLight hover:text-textDark')
+          );
+        }}
       >
         {children}
-      </Link>
+      </NavLink>
       <AnimatePresence>
         {showFlyout && (
           <motion.div
@@ -45,4 +53,4 @@ const NavLink = ({ children, href, FlyoutContent }: Props) => {
   );
 };
 
-export default NavLink;
+export default NavLinks;
