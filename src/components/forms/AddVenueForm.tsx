@@ -64,7 +64,7 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           error={errors.description?.message}
           hidden={false}
         />
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <Input
             label="Price per night"
             id="price"
@@ -108,7 +108,7 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           error={errors.address?.message}
           hidden={false}
         />
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <Input
             label="City"
             id="city"
