@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { VenueData } from '../../types/venueTypes';
 import BookingCalendar from '../single-venue/BookingCalendar';
 import BookingDetails from '../single-venue/BookingDetails';
-import SuccessNotification from '../my-venues/SuccessNotification';
+import SuccessNotification from '../../utils/SuccessNotification';
 import { FiAlertCircle } from 'react-icons/fi';
 import ErrorModal from '../single-venue/ErrorModal';
 

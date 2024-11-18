@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useDeleteVenue } from '../../hooks/useDeleteVenue';
 import DeleteVenueModal from './DeleteVenueModal';
-import SuccessNotification from './SuccessNotification';
+import SuccessNotification from '../../utils/SuccessNotification';
 import UpdateVenueModal from './UpdateVenueModal';
 import Loader from '../../utils/Loader';
 
