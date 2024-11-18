@@ -8,6 +8,7 @@ import { useAddVenue } from '../../hooks/useAddVenue';
 import { useState } from 'react';
 import { AxiosError } from 'axios';
 import { useTransformFormData } from '../../hooks/useTransformFormData';
+import SuccessNotification from '../../utils/SuccessNotification';
 
 interface Props {
   register: any;
@@ -21,14 +22,18 @@ interface ApiError {
 }
 
 const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
-  const { mutate, isError, isSuccess } = useAddVenue();
+  const { mutate, isError } = useAddVenue();
   const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [notificationText, setNotificationText] = useState<string | null>(null);
   const formData = useTransformFormData(venueData);
 
   const onSubmit = () => {
     mutate(formData, {
       onError: (error: AxiosError<ApiError>) => {
         setErrorMessage(error.response?.data?.errors[0]?.message);
+      },
+      onSuccess: () => {
+        setNotificationText('Venue added successfully!');
       },
     });
   };
@@ -163,10 +168,11 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           {`${errorMessage}! Please go to profile settings to become a venue manager! `}
         </div>
       )}
-      {isSuccess && (
-        <div className="text-successContent bg-success text-sm p-3 rounded-md">
-          Your venue was successfully added!
-        </div>
+      {notificationText && (
+        <SuccessNotification
+          text={notificationText}
+          removeNotif={() => setNotificationText(null)}
+        />
       )}
     </form>
   );
