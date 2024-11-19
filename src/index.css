@@ -31,6 +31,10 @@
   @apply h-10 w-10 hover:bg-primaryLight hover:text-primaryContent transition-colors;
 }
 
+.react-calendar__tile--active {
+  @apply bg-primaryLight bg-opacity-30;
+}
+
 .react-calendar__tile--rangeStart,
 .react-calendar__tile--rangeEnd {
   @apply bg-primary text-primaryContent;

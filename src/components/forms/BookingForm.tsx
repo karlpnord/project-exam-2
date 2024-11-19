@@ -59,6 +59,9 @@ const BookingForm = ({ data }: Props) => {
       {
         onSuccess: () => {
           setNotificationText('Booking successful!');
+          setStartDate(null);
+          setEndDate(null);
+          setGuests('');
         },
         onError: (error: any) => {
           const errorMessage =
@@ -84,17 +87,19 @@ const BookingForm = ({ data }: Props) => {
           endDate={endDate}
           guests={guests}
           setGuests={setGuests}
+          price={data.price}
         />
-        <Primary className="w-full" type={'submit'}>
-          Book now
-        </Primary>
 
         {error && (
-          <div className="flex flex-col gap-2 bg-error text-errorContent p-4 rounded-md">
-            <FiAlertCircle size={28} />
+          <div className="flex items-center gap-2 bg-error text-errorContent p-3 rounded-md">
+            <FiAlertCircle size={20} />
             {error}
           </div>
         )}
+
+        <Primary className="w-full" type={'submit'}>
+          Book now
+        </Primary>
 
         {errorModal.isModalOpen && (
           <ErrorModal

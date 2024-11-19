@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { BookingResponse, BookingData } from '../types/bookingType';
 
@@ -10,6 +10,8 @@ interface ApiError {
 }
 
 export const useCreateBooking = (token: string | undefined) => {
+  const queryClient = useQueryClient();
+
   const mutationFn = async ({ formData }: { formData: BookingData }) => {
     if (!token) {
       throw new Error('User not authenticated');
@@ -27,6 +29,9 @@ export const useCreateBooking = (token: string | undefined) => {
   return useMutation<BookingResponse, ApiError, { formData: BookingData }>({
     mutationKey: ['create-booking'],
     mutationFn: mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['single-venue'] });
+    },
     retry: false,
   });
 };
