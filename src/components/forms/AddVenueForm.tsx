@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { AxiosError } from 'axios';
 import { useTransformFormData } from '../../hooks/useTransformFormData';
 import SuccessNotification from '../../utils/SuccessNotification';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   register: any;
@@ -27,6 +28,8 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
   const [notificationText, setNotificationText] = useState<string | null>(null);
   const formData = useTransformFormData(venueData);
 
+  const navigate = useNavigate();
+
   const onSubmit = () => {
     mutate(formData, {
       onError: (error: AxiosError<ApiError>) => {
@@ -34,6 +37,9 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
       },
       onSuccess: () => {
         setNotificationText('Venue added successfully!');
+        setTimeout(() => {
+          navigate('/my-venues');
+        }, 1000);
       },
     });
   };
