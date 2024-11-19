@@ -44,7 +44,7 @@ const MobileNav = () => {
               ))}
             </div>
             <div className="flex justify-end bg-whiteBg p-6">
-              <NavCTAs />
+              <NavCTAs setOpen={setOpen} />
             </div>
           </motion.nav>
         )}
