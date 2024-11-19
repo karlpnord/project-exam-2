@@ -12,7 +12,7 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const CARDS_AMOUNT = 10;
 
 const CARD_WIDTH = 320;
-const MARGIN = 30;
+const MARGIN = 50;
 const CARD_SIZE = CARD_WIDTH + MARGIN;
 
 const BREAKPOINTS = {
@@ -35,7 +35,7 @@ const Carousel = () => {
   }
 
   const CARD_BUFFER =
-    width > BREAKPOINTS.lg ? 4 : width > BREAKPOINTS.sm ? 2 : 1;
+    width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
 
   const CAN_SHIFT_LEFT = offset < 0;
 
