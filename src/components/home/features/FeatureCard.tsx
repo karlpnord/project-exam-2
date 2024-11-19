@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { FeatureData } from './featuresData';
-import { twMerge } from 'tailwind-merge';
 
 interface FeatureCardProps {
   feature: FeatureData;
@@ -18,26 +17,18 @@ const FeatureCard = ({ feature }: FeatureCardProps) => {
 
   return (
     <motion.div
-      className={twMerge('p-[2px] rounded-md flex-1', feature.gradient)}
       variants={childVariants}
+      className="flex flex-col gap-2 h-full w-[280px] md:w-[320px] bg-foreground border border-borderClr shadow-md rounded-lg p-6"
     >
-      <div className="flex flex-col gap-2 h-full w-full max-w-[360px] bg-foreground rounded-[calc(0.375rem-1px)] p-4">
-        <div
-          className={twMerge(
-            'p-2 w-fit text-lg rounded-md',
-            feature.primary,
-            feature.accent
-          )}
-        >
-          <feature.icon />
-        </div>
-        <h2 className="font-poppins font-semibold text-xl text-textDark">
-          {feature.title}
-        </h2>
-        <p className="text-textLight font-light text-xs leading-5 sm:test-sm">
-          {feature.description}
-        </p>
+      <div className="bg-gradient-to-br from-primaryLight to-primaryDark p-3 w-fit text-lg rounded-full">
+        <feature.icon className="text-primaryContent" />
       </div>
+      <h2 className="font-poppins font-semibold text-lg text-textDark">
+        {feature.title}
+      </h2>
+      <p className="text-textLight font-light text-xs leading-5 sm:text-sm">
+        {feature.description}
+      </p>
     </motion.div>
   );
 };
