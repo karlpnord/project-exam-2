@@ -15,7 +15,7 @@ const About = () => {
           <h1 className="text-textDark text-4xl md:text-5xl font-bold">
             Our Mission & Vision
           </h1>
-          <div className="flex flex-col lg:flex-row justify-center gap-6">
+          <div className="flex flex-col lg:flex-row mx-auto justify-center gap-6">
             <div className="flex flex-col gap-2 items-center border border-borderClr px-4 py-6 rounded-md max-w-[440px]">
               <h2 className="text-primary font-bold uppercase text-xs">
                 Our Mission
