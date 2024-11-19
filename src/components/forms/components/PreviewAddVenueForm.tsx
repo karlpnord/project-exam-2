@@ -56,7 +56,9 @@ const PreviewAddVenueForm = ({ venueData }: PreviewCardProps) => {
       <h2 className="text-xl font-medium text-textLight mt-4">
         Venue Description
       </h2>
-      <p className="text-textLighter w-fit">{venueData.description}</p>
+      <p className="text-textLighter w-fit">
+        {venueData.description ? venueData.description : 'No description'}
+      </p>
     </div>
   );
 };

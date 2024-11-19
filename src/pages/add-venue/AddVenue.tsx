@@ -9,6 +9,8 @@ import {
 } from '../../components/forms/validations/addVenueFormSchema';
 import PreviewAddVenueForm from '../../components/forms/components/PreviewAddVenueForm';
 import UserError from '../../utils/UserError';
+import PageHeader from '../../utils/PageHeader';
+import { motion } from 'framer-motion';
 
 const AddVenue = () => {
   const { user } = useAuth();
@@ -39,12 +41,12 @@ const AddVenue = () => {
           />
         )}
         {user && user.venueManager && (
-          <>
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-textDark">
-                Add Your Venue
-              </h1>
-            </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeInOut ' }}
+          >
+            <PageHeader heading="Add Your Venue" />
             <div className="bg-foreground border border-borderClr mt-12 p-4 md:p-8 rounded-md shadow-md overflow-hidden flex flex-col gap-12 lg:flex-row">
               <AddVenueForm
                 register={register}
@@ -55,7 +57,7 @@ const AddVenue = () => {
               <div className="border border-borderClr"></div>
               <PreviewAddVenueForm venueData={venueData} />
             </div>
-          </>
+          </motion.div>
         )}
       </MaxWidthWrapper>
     </main>
