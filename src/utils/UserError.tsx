@@ -1,10 +1,10 @@
 import { LoginResponseData } from '../types/loginTypes';
 import { Link } from 'react-router-dom';
 import DefaultNoBg from '../components/buttons/DefaultNoBg';
-import { FiAlertCircle } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { MdError } from 'react-icons/md';
 
 interface Props {
   user: LoginResponseData | null;
@@ -32,43 +32,43 @@ const UserError = ({ user, loginErrorMsg, venueManagerErrorMsg }: Props) => {
       className="flex justify-center items-center pb-60 pt-12 md:pb-0 md:pt-0"
     >
       {!user ? (
-        <div className="bg-gradient-to-br from-error to-red-800 text-errorContent py-8 px-6 sm:px-12 rounded-lg shadow-md max-w-md">
-          <div className="bg-white w-16 h-16 mb-4 rounded-full text-3xl text-error grid place-items-center mx-auto">
-            <FiAlertCircle />
+        <div className="bg-foreground text-error border border-borderClr py-8 px-6 sm:px-12 rounded-md shadow-md max-w-md">
+          <div className="mb-4 text-error grid place-items-center mx-auto">
+            <MdError size={48} />
           </div>
-          <p className="text-center mb-6">{loginErrorMsg}</p>
+          <p className="text-center mb-6 font-medium">{loginErrorMsg}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-2">
             <Link to="/sign-in">
-              <DefaultNoBg className="bg-red-800 text-errorContent transition-colors font-semibold w-full py-2 px-8 hover:bg-white/10">
+              <DefaultNoBg className="bg-error text-errorContent px-6 hover:bg-red-700">
                 Sign In
               </DefaultNoBg>
             </Link>
-            <button
-              onClick={handleNavigate}
-              className="py-2 px-8 font-semibold text-errorContent hover:bg-white/10 transition-colors rounded-md"
+            <DefaultNoBg
+              clickHandler={handleNavigate}
+              className="px-6 text-error"
             >
               Go Back
-            </button>
+            </DefaultNoBg>
           </div>
         </div>
       ) : (
-        <div className="bg-gradient-to-br from-error to-red-800 text-errorContent py-8 px-6 sm:px-12 rounded-lg shadow-md max-w-md">
-          <div className="bg-white w-16 h-16 mb-4 rounded-full text-3xl text-error grid place-items-center mx-auto">
-            <FiAlertCircle />
+        <div className="bg-foreground text-error border border-borderClr py-8 px-6 sm:px-12 rounded-md shadow-md max-w-md">
+          <div className="mb-4 text-error grid place-items-center mx-auto">
+            <MdError size={48} />
           </div>
-          <p className="text-center mb-6">{venueManagerErrorMsg}</p>
+          <p className="text-center mb-6 font-medium">{venueManagerErrorMsg}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-2">
             <Link to="/profile">
-              <DefaultNoBg className="bg-red-800 text-errorContent transition-colors font-semibold w-full py-2 px-8 hover:bg-white/10">
+              <DefaultNoBg className="bg-error text-errorContent px-6 hover:bg-red-700">
                 Profile Settings
               </DefaultNoBg>
             </Link>
-            <button
-              onClick={handleNavigate}
-              className="py-2 px-8 font-semibold text-errorContent hover:bg-white/10 transition-colors rounded-md"
+            <DefaultNoBg
+              clickHandler={handleNavigate}
+              className="px-6 text-error"
             >
               Go Back
-            </button>
+            </DefaultNoBg>
           </div>
         </div>
       )}

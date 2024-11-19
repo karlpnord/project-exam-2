@@ -9,6 +9,8 @@ import UpdateVenueModal from './UpdateVenueModal';
 import Loader from '../../utils/Loader';
 import MyVenuesCard from './MyVenuesCard';
 import { VenueData } from '../../types/venueTypes';
+import NoVenuesContainer from './NoVenuesContainer';
+import PageHeader from '../../utils/PageHeader';
 
 interface Props {
   user: LoginResponseData | null;
@@ -69,29 +71,30 @@ const MyVenuesContent = ({ user }: Props) => {
 
   return (
     <>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-textDark">My Venues</h1>
-      </div>
+      <PageHeader heading="My Venues" />
       {isLoading && <Loader className="mt-12" />}
       {isSuccess && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="flex flex-col gap-8 items-center mt-12"
-        >
-          {data.data.map((venue: VenueData) => (
-            <MyVenuesCard
-              key={venue.id}
-              venue={venue}
-              viewBookings={viewBookings[venue.id] || false}
-              toggleViewBookings={toggleViewBookings}
-              handleUpdate={handleUpdate}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </motion.div>
+        <>
+          {data.data.length === 0 && <NoVenuesContainer />}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="flex flex-col gap-8 items-center mt-12"
+          >
+            {data.data.map((venue: VenueData) => (
+              <MyVenuesCard
+                key={venue.id}
+                venue={venue}
+                viewBookings={viewBookings[venue.id] || false}
+                toggleViewBookings={toggleViewBookings}
+                handleUpdate={handleUpdate}
+                handleDelete={handleDelete}
+              />
+            ))}
+          </motion.div>
+        </>
       )}
       {isDeleteModalOpen && (
         <DeleteVenueModal
