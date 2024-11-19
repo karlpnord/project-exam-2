@@ -25,10 +25,10 @@ const NavLinks = ({ children, href, FlyoutContent }: Props) => {
         to={href}
         className={({ isActive }) => {
           return (
-            'relative font-inter' +
+            'relative font-inter py-2 px-4 rounded-md' +
             ' ' +
             (isActive
-              ? 'text-secondary bg-secondaryLight bg-opacity-10 font-semibold py-2 px-4 rounded-md'
+              ? 'text-secondary bg-secondaryLight bg-opacity-10 font-semibold'
               : 'text-textLight hover:text-textDark')
           );
         }}
