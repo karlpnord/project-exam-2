@@ -13,6 +13,8 @@ import Primary from '../buttons/Primary';
 import { useTransformFormData } from '../../hooks/useTransformFormData';
 import { useUpdateVenue } from '../../hooks/useUpdateVenue';
 import { useAuth } from '../../hooks/useAuth';
+import { useState } from 'react';
+import { FiAlertCircle } from 'react-icons/fi';
 
 interface Props {
   currentData: VenueData;
@@ -27,6 +29,8 @@ const UpdateVenueForm = ({
   isExiting,
   setUpdateSuccess,
 }: Props) => {
+  const [customFormError, setCustomFormError] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -61,8 +65,14 @@ const UpdateVenueForm = ({
       { venueId: currentData.id, formData: updatedData },
       {
         onSuccess: () => {
+          setCustomFormError(null);
           closeModal();
           setUpdateSuccess(true);
+        },
+        onError: (error: any) => {
+          const errorMessage =
+            error.response?.data?.errors?.[0].message || 'An error occurred';
+          setCustomFormError(errorMessage);
         },
       }
     );
@@ -190,9 +200,15 @@ const UpdateVenueForm = ({
               error={errors.pets?.message}
             />
           </div>
+          {customFormError && (
+            <p className="text-error mt-4">
+              <FiAlertCircle size={24} />
+              {customFormError}. Please try again!
+            </p>
+          )}
         </div>
       </div>
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-2">
         <Primary type={'submit'}>Update Venue</Primary>
         <button
           type="button"

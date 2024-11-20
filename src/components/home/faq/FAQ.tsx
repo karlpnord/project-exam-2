@@ -15,7 +15,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="px-4 py-20 font-inter">
+    <section className="px-4 py-20 font-inter">
       <div className="mx-auto max-w-3xl">
         <SectionHeading
           heading={'Frequently Asked Questions'}
@@ -35,7 +35,7 @@ const FAQ = () => {
           </Question>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

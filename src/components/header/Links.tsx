@@ -1,17 +1,17 @@
 import { LINKS } from './LinkContent';
-import NavLink from './NavLinks';
+import NavLinks from './NavLinks';
 
 const Links = () => {
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-2">
       {LINKS.map((link) => (
-        <NavLink
+        <NavLinks
           key={link.text}
           href={link.href}
           FlyoutContent={link.component}
         >
           {link.text}
-        </NavLink>
+        </NavLinks>
       ))}
     </div>
   );

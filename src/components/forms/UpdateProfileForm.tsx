@@ -8,28 +8,23 @@ import {
 } from './validations/updateProfileFormSchema';
 import { UserResponseData } from '../../types/userTypes';
 import Primary from '../buttons/Primary';
-import { useState } from 'react';
-import { useUpdateProfile } from '../../hooks/useUpdateProfile';
-import { useAuth } from '../../hooks/useAuth';
-import { UpdateUserProps } from '../../types/userTypes';
-import SuccessNotification from '../my-venues/SuccessNotification';
 
 interface Props {
   currentSettings: UserResponseData;
+  onSubmit: (formData: any) => void;
+  customFormError: string | null;
 }
 
-const UpdateProfileForm = ({ currentSettings }: Props) => {
-  const [customFormError, setCustomFormError] = useState<string | null>(null);
-  const [notificationText, setNotificationText] = useState<string | null>(null);
-
-  const { user } = useAuth();
-  const { mutate } = useUpdateProfile(user?.accessToken);
-
+const UpdateProfileForm = ({
+  currentSettings,
+  onSubmit,
+  customFormError,
+}: Props) => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isDirty },
+    formState: { errors },
   } = useForm<UpdateProfileFormProps>({
     defaultValues: {
       avatar: currentSettings.avatar.url,
@@ -42,47 +37,9 @@ const UpdateProfileForm = ({ currentSettings }: Props) => {
 
   const formData = watch();
 
-  const onSubmit = () => {
-    setCustomFormError(null);
-
-    if (!isDirty) {
-      setCustomFormError(
-        'At least one field must be updated before saving settings'
-      );
-      return;
-    }
-
-    const updatedData: UpdateUserProps = {
-      bio: formData.bio ? formData.bio : currentSettings.bio,
-      avatar: {
-        url: formData.avatar ? formData.avatar : currentSettings.avatar.url,
-        alt: currentSettings.avatar.alt,
-      },
-      banner: {
-        url: formData.banner ? formData.banner : currentSettings.banner.url,
-        alt: currentSettings.banner.alt,
-      },
-      venueManager: formData.venueManager ?? false,
-    };
-
-    mutate(
-      { username: currentSettings.name, updatedData: updatedData },
-      {
-        onSuccess: () => {
-          setNotificationText('Changes saved');
-        },
-        onError: (error: any) => {
-          const errorMessage =
-            error.response?.data?.errors?.[0]?.message || 'An error occurred';
-          setCustomFormError(errorMessage);
-        },
-      }
-    );
-  };
-
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(() => onSubmit(formData))}
       className="flex flex-col gap-3 bg-foreground p-4"
     >
       <h2 className="font-bold">Profile Settings</h2>
@@ -125,12 +82,6 @@ const UpdateProfileForm = ({ currentSettings }: Props) => {
       <Primary type="submit" className="md:max-w-fit">
         Save settings
       </Primary>
-      {notificationText && (
-        <SuccessNotification
-          text={notificationText}
-          removeNotif={() => setNotificationText(null)}
-        />
-      )}
     </form>
   );
 };

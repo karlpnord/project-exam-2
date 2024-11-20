@@ -1,41 +1,43 @@
-import { ReactNode, Dispatch, SetStateAction, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiArrowRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-interface MobileNavLinkProps {
+interface Props {
   children: ReactNode;
   href: string;
-  FoldContent?: () => JSX.Element;
-  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+  FoldContent?: (props: {
+    setMenuOpen: (open: boolean) => void;
+  }) => JSX.Element;
+  setMenuOpen: (open: boolean) => void;
 }
 
-const MobileNavLink = ({
-  children,
-  href,
-  FoldContent,
-  setMenuOpen,
-}: MobileNavLinkProps) => {
+const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: Props) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative text-neutral-950">
+    <div className="relative">
       {FoldContent ? (
         <div
-          className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl font-semibold hover:text-textDark"
+          className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl hover:text-textDark"
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
-          <Link
+          <NavLink
             onClick={(e) => {
               e.stopPropagation();
               setMenuOpen(false);
             }}
             to={href}
+            className={({ isActive }) => {
+              return isActive
+                ? 'text-secondary font-bold'
+                : 'text-textLight hover:text-textDark font-semibold';
+            }}
           >
             {children}
-          </Link>
+          </NavLink>
           <motion.div
             animate={{ rotate: open ? '180deg' : '0deg' }}
             transition={{
@@ -47,17 +49,25 @@ const MobileNavLink = ({
           </motion.div>
         </div>
       ) : (
-        <Link
+        <NavLink
           onClick={(e) => {
             e.stopPropagation();
             setMenuOpen(false);
           }}
           to={href}
-          className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl font-semibold hover:text-textDark"
+          className={({ isActive }) => {
+            return (
+              'flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-xl' +
+              ' ' +
+              (isActive
+                ? 'text-secondary font-bold'
+                : 'text-textLight hover:text-textDark font-semibold')
+            );
+          }}
         >
           <span>{children}</span>
           <FiArrowRight />
-        </Link>
+        </NavLink>
       )}
       {FoldContent && (
         <motion.div
@@ -70,7 +80,7 @@ const MobileNavLink = ({
           className="overflow-hidden"
         >
           <div ref={ref}>
-            <FoldContent />
+            <FoldContent setMenuOpen={setMenuOpen} />
           </div>
         </motion.div>
       )}

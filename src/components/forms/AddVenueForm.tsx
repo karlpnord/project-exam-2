@@ -8,6 +8,8 @@ import { useAddVenue } from '../../hooks/useAddVenue';
 import { useState } from 'react';
 import { AxiosError } from 'axios';
 import { useTransformFormData } from '../../hooks/useTransformFormData';
+import SuccessNotification from '../../utils/SuccessNotification';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   register: any;
@@ -21,14 +23,23 @@ interface ApiError {
 }
 
 const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
-  const { mutate, isError, isSuccess } = useAddVenue();
+  const { mutate, isError } = useAddVenue();
   const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [notificationText, setNotificationText] = useState<string | null>(null);
   const formData = useTransformFormData(venueData);
+
+  const navigate = useNavigate();
 
   const onSubmit = () => {
     mutate(formData, {
       onError: (error: AxiosError<ApiError>) => {
         setErrorMessage(error.response?.data?.errors[0]?.message);
+      },
+      onSuccess: () => {
+        setNotificationText('Venue added successfully!');
+        setTimeout(() => {
+          navigate('/my-venues');
+        }, 1000);
       },
     });
   };
@@ -59,7 +70,7 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           error={errors.description?.message}
           hidden={false}
         />
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <Input
             label="Price per night"
             id="price"
@@ -103,7 +114,7 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           error={errors.address?.message}
           hidden={false}
         />
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <Input
             label="City"
             id="city"
@@ -163,10 +174,11 @@ const AddVenueForm = ({ register, handleSubmit, errors, venueData }: Props) => {
           {`${errorMessage}! Please go to profile settings to become a venue manager! `}
         </div>
       )}
-      {isSuccess && (
-        <div className="text-successContent bg-success text-sm p-3 rounded-md">
-          Your venue was successfully added!
-        </div>
+      {notificationText && (
+        <SuccessNotification
+          text={notificationText}
+          removeNotif={() => setNotificationText(null)}
+        />
       )}
     </form>
   );

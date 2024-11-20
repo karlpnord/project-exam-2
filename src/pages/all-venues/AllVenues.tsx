@@ -3,7 +3,6 @@ import Loader from '../../utils/Loader';
 import { useInfiniteVenues } from '../../hooks/useInfiniteVenues';
 import { useState } from 'react';
 import SearchForm from '../../components/forms/SearchForm';
-
 import VenueList from '../../components/all-venues/VenueList';
 import { useObserverInfiniteScrolling } from '../../hooks/useObserverInfiniteScrolling';
 import { useSearchFilteredVenues } from '../../hooks/useSearchFilteredVenues';

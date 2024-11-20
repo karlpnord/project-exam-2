@@ -7,7 +7,7 @@ interface Props {
 
 const Stats = ({ className = '' }: Props) => {
   return (
-    <div
+    <section
       className={twMerge(
         'relative overflow-hidden border-y bg-defaultBg border-borderClr font-inter',
         className
@@ -40,7 +40,7 @@ const Stats = ({ className = '' }: Props) => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

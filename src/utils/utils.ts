@@ -20,9 +20,26 @@ export function calculateBookingCost(
 
   const timeDifference = toDate.getTime() - fromDate.getTime();
 
-  const numberOfNights = timeDifference / (1000 * 3600 * 24);
+  const numberOfNights = timeDifference / (1000 * 3600 * 24) - 1;
 
   const totalCost = numberOfNights * price;
 
   return totalCost;
 }
+
+export function calculateNumberofNights(dateFrom: Date, dateTo: Date): number {
+  const timeDifference = dateTo.getTime() - dateFrom.getTime();
+
+  const numberOfNights = timeDifference / (1000 * 3600 * 24) - 1;
+
+  return numberOfNights;
+}
+
+type ActiveTab = 'profile' | 'bookings' | 'settings';
+
+export const validateTab = (tab: string | undefined): ActiveTab => {
+  if (tab === 'profile' || tab === 'bookings' || tab === 'settings') {
+    return tab;
+  }
+  return 'profile';
+};

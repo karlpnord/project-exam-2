@@ -1,18 +1,16 @@
 import { LoginResponseData } from '../../types/loginTypes';
 import { usePostsAuthenticated } from '../../hooks/usePostsAuthenticated';
-import CardImage from '../venue-card/CardImage';
-import CardInfo from '../venue-card/CardInfo';
-import CardFacilities from '../venue-card/CardFacilities';
-import CardInteractions from '../venue-card/CardInteractions';
-import CardBookings from '../venue-card/CardBookings';
-import { VenueData } from '../../types/venueTypes';
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useDeleteVenue } from '../../hooks/useDeleteVenue';
 import DeleteVenueModal from './DeleteVenueModal';
-import SuccessNotification from './SuccessNotification';
+import SuccessNotification from '../../utils/SuccessNotification';
 import UpdateVenueModal from './UpdateVenueModal';
 import Loader from '../../utils/Loader';
+import MyVenuesCard from './MyVenuesCard';
+import { VenueData } from '../../types/venueTypes';
+import NoVenuesContainer from './NoVenuesContainer';
+import PageHeader from '../../utils/PageHeader';
 
 interface Props {
   user: LoginResponseData | null;
@@ -73,58 +71,30 @@ const MyVenuesContent = ({ user }: Props) => {
 
   return (
     <>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-textDark">My Venues</h1>
-      </div>
+      <PageHeader heading="My Venues" />
       {isLoading && <Loader className="mt-12" />}
       {isSuccess && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="flex flex-col gap-8 items-center mt-12"
-        >
-          {data.data.map((venue: VenueData) => (
-            <div
-              key={venue.id}
-              className="shadow-md rounded-md overflow-hidden"
-            >
-              <CardImage
-                src={venue.media?.[0]?.url}
-                alt={venue.media?.[0]?.alt}
-                large={'md:w-[500px] md:h-72'}
+        <>
+          {data.data.length === 0 && <NoVenuesContainer />}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="flex flex-col gap-8 items-center mt-12"
+          >
+            {data.data.map((venue: VenueData) => (
+              <MyVenuesCard
+                key={venue.id}
+                venue={venue}
+                viewBookings={viewBookings[venue.id] || false}
+                toggleViewBookings={toggleViewBookings}
+                handleUpdate={handleUpdate}
+                handleDelete={handleDelete}
               />
-              <CardInfo
-                city={venue.location.city}
-                country={venue.location.country}
-                rating={venue.rating}
-                price={venue.price}
-                name={venue.name}
-              />
-              <CardFacilities meta={venue.meta} maxGuests={venue.maxGuests} />
-              <CardInteractions
-                toggleViewBookings={() => toggleViewBookings(venue.id)}
-                isViewingBookings={viewBookings[venue.id] || false}
-                handleDelete={() => handleDelete(venue.id)}
-                handleUpdate={() => handleUpdate(venue)}
-              />
-              <AnimatePresence>
-                {viewBookings[venue.id] && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ overflow: 'hidden' }}
-                  >
-                    <CardBookings bookings={venue.bookings} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </>
       )}
       {isDeleteModalOpen && (
         <DeleteVenueModal

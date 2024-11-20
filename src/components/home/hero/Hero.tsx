@@ -2,11 +2,12 @@ import MaxWidthWrapper from '../../../utils/MaxWidthWrapper';
 import { motion } from 'framer-motion';
 import Primary from '../../buttons/Primary';
 import DefaultNoBg from '../../buttons/DefaultNoBg';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="bg-whiteBg">
-      <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-12 pt-24 md:pb-36 md:pt-36">
+    <section className="bg-whiteBg">
+      <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-8 pt-28 md:pb-28 md:pt-36">
         <motion.h1
           initial={{
             y: 25,
@@ -59,11 +60,15 @@ const Hero = () => {
           }}
           className="flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Primary>All Venues</Primary>
-          <DefaultNoBg>Learn More</DefaultNoBg>
+          <Link to="/all-venues">
+            <Primary>All Venues</Primary>
+          </Link>
+          <Link to="about">
+            <DefaultNoBg>Learn More</DefaultNoBg>
+          </Link>
         </motion.div>
       </MaxWidthWrapper>
-    </div>
+    </section>
   );
 };
 

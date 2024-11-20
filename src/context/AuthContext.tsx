@@ -1,9 +1,11 @@
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import { LoginResponseData } from '../types/loginTypes';
+import { UpdateUserProps } from '../types/userTypes';
 
 interface AuthContextType {
   user: LoginResponseData | null;
   setUser: (user: LoginResponseData | null) => void;
+  updateUser: (updateData: UpdateUserProps) => void;
   rememberMe: boolean;
   setRememberMe: (remember: boolean) => void;
 }
@@ -40,8 +42,29 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, [user, rememberMe]);
 
+  const updateUser = (updateData: UpdateUserProps) => {
+    setUser((prevUser) => {
+      if (!prevUser) return prevUser;
+      return {
+        ...prevUser,
+        bio: updateData.bio ?? prevUser.bio,
+        venueManager: updateData.venueManager,
+        avatar: {
+          url: updateData.avatar.url ?? prevUser.avatar.url,
+          alt: updateData.avatar.alt ?? prevUser.avatar.alt,
+        },
+        banner: {
+          url: updateData.banner.url ?? prevUser.banner.url,
+          alt: updateData.banner.alt ?? prevUser.banner.alt,
+        },
+      };
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, setUser, rememberMe, setRememberMe }}>
+    <AuthContext.Provider
+      value={{ user, setUser, updateUser, rememberMe, setRememberMe }}
+    >
       {children}
     </AuthContext.Provider>
   );

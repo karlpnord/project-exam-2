@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiCheckCircle } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 const NOTIFICATION_TTL = 4000;
@@ -25,11 +25,12 @@ const SuccessNotification = ({ text, removeNotif }: Props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="p-4 w-80 flex items-start rounded-lg gap-2 text-sm font-medium shadow-lg text-white bg-success fixed z-100 bottom-10 right-4 md:right-12 font-inter"
+      className="px-4 py-3 w-fit flex items-center rounded-md gap-2 text-sm font-medium border bg-opacity-50 shadow-lg bg-success fixed z-100 top-24 right-4 font-inter"
     >
-      <span className="text-successContent">{text}</span>
+      <FiCheckCircle size={20} className="text-successContent" />
+      <h2 className="text-semibold text-successContent">{text}</h2>
       <button onClick={() => removeNotif()} className="ml-auto mt-0.5">
-        <FiX className="text-successContent" size={16} />
+        <FiX className="text-successContent" size={20} />
       </button>
     </motion.div>
   );

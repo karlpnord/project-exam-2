@@ -1,14 +1,16 @@
-import { FC, useState, ReactNode } from 'react';
+import { useState, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-interface NavLinkProps {
+interface Props {
   children: ReactNode;
   href: string;
-  FlyoutContent?: FC;
+  FlyoutContent?: (props: {
+    setMenuOpen?: (open: boolean) => void;
+  }) => JSX.Element;
 }
 
-const NavLink: FC<NavLinkProps> = ({ children, href, FlyoutContent }) => {
+const NavLinks = ({ children, href, FlyoutContent }: Props) => {
   const [open, setOpen] = useState(false);
 
   const showFlyout = FlyoutContent && open;
@@ -19,12 +21,20 @@ const NavLink: FC<NavLinkProps> = ({ children, href, FlyoutContent }) => {
       onMouseLeave={() => setOpen(false)}
       className="relative h-fit w-fit"
     >
-      <Link
+      <NavLink
         to={href}
-        className="relative text-textLight hover:text-textDark font-inter"
+        className={({ isActive }) => {
+          return (
+            'relative font-inter py-2 px-4 rounded-md' +
+            ' ' +
+            (isActive
+              ? 'text-secondary bg-secondaryLight bg-opacity-10 font-semibold'
+              : 'text-textLight hover:text-textDark')
+          );
+        }}
       >
         {children}
-      </Link>
+      </NavLink>
       <AnimatePresence>
         {showFlyout && (
           <motion.div
@@ -33,10 +43,8 @@ const NavLink: FC<NavLinkProps> = ({ children, href, FlyoutContent }) => {
             exit={{ opacity: 0, y: 15 }}
             style={{ translateX: '-50%' }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute left-1/2 top-12 bg-white text-black"
+            className="absolute left-1/2 top-12 bg-foreground text-textDark shadow-md rounded-md"
           >
-            <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
-            <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-whiteBg" />
             <FlyoutContent />
           </motion.div>
         )}
@@ -45,4 +53,4 @@ const NavLink: FC<NavLinkProps> = ({ children, href, FlyoutContent }) => {
   );
 };
 
-export default NavLink;
+export default NavLinks;

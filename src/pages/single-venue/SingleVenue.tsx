@@ -5,7 +5,7 @@ import Loader from '../../utils/Loader';
 import SingleVenueCard from '../../components/single-venue/SingleVenueCard';
 import SingleVenueDescription from '../../components/single-venue/SingleVenueDescription';
 import { useAuth } from '../../hooks/useAuth';
-import NotLoggedIn from '../../components/single-venue/NotLoggedIn';
+import UserError from '../../utils/UserError';
 import BookingForm from '../../components/forms/BookingForm';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
@@ -35,9 +35,12 @@ const SingleVenue = () => {
             {user ? (
               <BookingForm data={data.data} />
             ) : (
-              <div className="max-w-[320px] md:max-w-[500px] mx-auto mt-12">
-                <NotLoggedIn />
-              </div>
+              <UserError
+                user={user}
+                loginErrorMsg={
+                  'You have to be signed in to register a booking! Please click below to sign in.'
+                }
+              />
             )}
           </>
         )}

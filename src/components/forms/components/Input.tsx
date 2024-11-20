@@ -20,7 +20,7 @@ const Input = ({
   hidden = true,
 }: InputProps) => {
   return (
-    <div>
+    <div className="flex-1">
       <label
         htmlFor={id}
         className={hidden ? 'hidden' : 'text-textDark font-semibold text-sm'}
