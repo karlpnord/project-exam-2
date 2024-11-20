@@ -7,6 +7,7 @@ import { useUpdateProfile } from '../../hooks/useUpdateProfile';
 import { UpdateUserProps } from '../../types/userTypes';
 import SuccessNotification from '../../utils/SuccessNotification';
 import { UpdateProfileFormProps } from '../forms/validations/updateProfileFormSchema';
+import { useAuth } from '../../hooks/useAuth';
 
 interface Props {
   user: User;
@@ -19,6 +20,8 @@ const SettingsTabContent = ({ user }: Props) => {
     `${apiBaseUrl}/profiles/${user.name}`,
     user.accessToken
   );
+
+  const { updateUser } = useAuth();
 
   const [customFormError, setCustomFormError] = useState<string | null>(null);
   const [notificationText, setNotificationText] = useState<string | null>(null);
@@ -58,6 +61,7 @@ const SettingsTabContent = ({ user }: Props) => {
       {
         onSuccess: () => {
           setNotificationText('Profile updated successfully');
+          updateUser(updatedData);
         },
         onError: (error: any) => {
           const errorMessage =
