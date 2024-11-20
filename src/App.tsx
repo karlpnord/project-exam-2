@@ -25,6 +25,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/venues/:venueId" element={<SingleVenue />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:tab" element={<Profile />} />
       </Route>
     </Routes>
   );

@@ -8,11 +8,15 @@ import BookingsTabContent from '../../components/profile/BookingsTabContent';
 import SettingsTabContent from '../../components/profile/SettingsTabContent';
 import Logo from '../../components/header/Logo';
 import UserError from '../../utils/UserError';
+import { useParams } from 'react-router-dom';
+import { validateTab } from '../../utils/utils';
 
 type ActiveTab = 'profile' | 'bookings' | 'settings';
 
 const Profile = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('profile');
+  const { tab } = useParams();
+
+  const [activeTab, setActiveTab] = useState<ActiveTab>(validateTab(tab));
   const { user } = useAuth();
 
   const clickHandler = (tab: ActiveTab) => {

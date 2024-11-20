@@ -34,3 +34,12 @@ export function calculateNumberofNights(dateFrom: Date, dateTo: Date): number {
 
   return numberOfNights;
 }
+
+type ActiveTab = 'profile' | 'bookings' | 'settings';
+
+export const validateTab = (tab: string | undefined): ActiveTab => {
+  if (tab === 'profile' || tab === 'bookings' || tab === 'settings') {
+    return tab;
+  }
+  return 'profile';
+};

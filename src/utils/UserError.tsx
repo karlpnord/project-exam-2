@@ -58,7 +58,7 @@ const UserError = ({ user, loginErrorMsg, venueManagerErrorMsg }: Props) => {
           </div>
           <p className="text-center mb-6 font-medium">{venueManagerErrorMsg}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-2">
-            <Link to="/profile">
+            <Link to="/profile/settings">
               <DefaultNoBg className="bg-error text-errorContent px-6 hover:bg-red-700">
                 Profile Settings
               </DefaultNoBg>
