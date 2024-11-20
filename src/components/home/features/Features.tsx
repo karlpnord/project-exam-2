@@ -16,7 +16,7 @@ const Features = () => {
   };
 
   return (
-    <div className="bg-whiteBg font-inter">
+    <section className="bg-whiteBg font-inter">
       <MaxWidthWrapper className="py-20 flex flex-col gap-8">
         <SectionHeading
           heading={'Features & Benefits'}
@@ -35,7 +35,7 @@ const Features = () => {
           ))}
         </motion.div>
       </MaxWidthWrapper>
-    </div>
+    </section>
   );
 };
 

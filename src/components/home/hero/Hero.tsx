@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="bg-whiteBg">
+    <section className="bg-whiteBg">
       <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-8 pt-28 md:pb-28 md:pt-36">
         <motion.h1
           initial={{
@@ -68,7 +68,7 @@ const Hero = () => {
           </Link>
         </motion.div>
       </MaxWidthWrapper>
-    </div>
+    </section>
   );
 };
 
