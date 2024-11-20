@@ -1,5 +1,6 @@
 import { VenueData } from '../../types/venueTypes';
 import VenueCard from '../../components/all-venues/VenueCard';
+import { motion } from 'framer-motion';
 
 interface VenueListProps {
   venues: VenueData[];
@@ -10,7 +11,12 @@ const VenueList = ({ venues, lastVenueElementRef }: VenueListProps) => {
   const noOp = () => {};
 
   return (
-    <div className="flex flex-wrap justify-center xxl:justify-start gap-x-4 gap-y-12">
+    <motion.div
+      className="flex flex-wrap justify-center xxl:justify-start gap-x-4 gap-y-12"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
       {venues.map((venue: VenueData, index: number) => {
         const isLastElement = index === venues.length - 1;
         return (
@@ -22,7 +28,7 @@ const VenueList = ({ venues, lastVenueElementRef }: VenueListProps) => {
           />
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 
