@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { UpdateUserProps, UserResponseData } from '../types/userTypes';
+import { UpdateUserProps, UserResponseData } from '../../types/userTypes';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
