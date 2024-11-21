@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { ApiResponse } from '../types/venueTypes';
+import { ApiResponse } from '../../types/venueTypes';
 
-export const usePosts = (url: string) => {
+export const useVenues = (url: string) => {
   return useQuery<ApiResponse>({
     queryKey: ['all-venues'],
     queryFn: async () => {

@@ -1,7 +1,7 @@
-import { AddVenueProps, AddVenueResponse } from '../types/addVenueTypes';
+import { AddVenueProps, AddVenueResponse } from '../../types/addVenueTypes';
 import axios, { AxiosError } from 'axios';
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
-import { useAuth } from './useAuth';
+import { useAuth } from '../auth/useAuth';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;

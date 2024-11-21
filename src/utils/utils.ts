@@ -1,3 +1,6 @@
+import { VenueData } from '../types/venueTypes';
+import { AddVenueFormProps } from '../components/forms/validations/addVenueFormSchema';
+
 export function truncateText(text: string, maxLength: number): string {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
@@ -43,3 +46,59 @@ export const validateTab = (tab: string | undefined): ActiveTab => {
   }
   return 'profile';
 };
+
+export const mapVenueData = (currentData: VenueData): AddVenueFormProps => {
+  return {
+    name: currentData.name,
+    description: currentData.description,
+    price: currentData.price,
+    maxGuests: currentData.maxGuests,
+    url: currentData.media[0]?.url || '',
+    address: currentData.location?.address || '',
+    city: currentData.location?.city || '',
+    country: currentData.location?.country || '',
+    wifi: currentData.meta?.wifi || false,
+    parking: currentData.meta?.parking || false,
+    breakfast: currentData.meta?.breakfast || false,
+    pets: currentData.meta?.pets || false,
+  };
+};
+
+export const mapCurrentDataToDefaults = (currentData: VenueData) => ({
+  name: currentData.name,
+  description: currentData.description,
+  price: currentData.price,
+  maxGuests: currentData.maxGuests,
+  url: currentData.media[0]?.url,
+  address: currentData.location?.address,
+  city: currentData.location?.city,
+  country: currentData.location?.country,
+  wifi: currentData.meta?.wifi,
+  parking: currentData.meta?.parking,
+  breakfast: currentData.meta?.breakfast,
+  pets: currentData.meta?.pets,
+});
+
+export const mapFormDataToVenueUpdate = (
+  formData: AddVenueFormProps,
+  currentData: VenueData
+) => ({
+  name: formData.name || currentData.name,
+  description: formData.description || currentData.description,
+  price: Number(formData.price) || currentData.price,
+  maxGuests: Number(formData.maxGuests) || currentData.maxGuests,
+  media: formData.url
+    ? [{ url: formData.url, alt: formData.name || currentData.name }]
+    : currentData.media,
+  meta: {
+    wifi: formData.wifi ?? currentData.meta?.wifi,
+    parking: formData.parking ?? currentData.meta?.parking,
+    breakfast: formData.breakfast ?? currentData.meta?.breakfast,
+    pets: formData.pets ?? currentData.meta?.pets,
+  },
+  location: {
+    address: formData.address || currentData.location?.address,
+    city: formData.city || currentData.location?.city,
+    country: formData.country || currentData.location?.country,
+  },
+});

@@ -1,6 +1,6 @@
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
-import { LoginFormData, LoginResponse } from '../types/loginTypes';
+import { LoginFormData, LoginResponse } from '../../types/loginTypes';
 
 const apiLoginUrl = import.meta.env.VITE_API_LOGIN_URL;
 

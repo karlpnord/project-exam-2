@@ -1,5 +1,5 @@
 import { LoginResponseData as User } from '../../types/loginTypes';
-import { useUserBookings } from '../../hooks/useUserBookings';
+import { useUserBookings } from '../../hooks/bookings/useUserBookings';
 import { UserBookingsData } from '../../types/bookingType';
 import SingleBookingCard from './SingleBookingCard';
 import Loader from '../../utils/Loader';

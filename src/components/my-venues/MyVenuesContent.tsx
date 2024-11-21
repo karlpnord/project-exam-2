@@ -1,5 +1,5 @@
 import { LoginResponseData } from '../../types/loginTypes';
-import { useVenueManagement } from '../../hooks/useVenueManagement';
+import { useMyVenuesManagement } from '../../hooks/venues/useMyVenuesManagement';
 import DeleteVenueModal from './DeleteVenueModal';
 import SuccessNotification from '../../utils/SuccessNotification';
 import UpdateVenueModal from './UpdateVenueModal';
@@ -34,7 +34,7 @@ const MyVenuesContent = ({ user }: Props) => {
     setIsDeleteModalOpen,
     setNotificationText,
     setUpdateSuccess,
-  } = useVenueManagement(apiUrl, user?.accessToken);
+  } = useMyVenuesManagement(apiUrl, user?.accessToken);
 
   return (
     <>

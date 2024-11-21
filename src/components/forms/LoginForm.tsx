@@ -8,9 +8,9 @@ import {
   loginFormSchema,
   LoginFormDataProps,
 } from './validations/loginFormSchema';
-import { useLogin } from '../../hooks/useLogin';
+import { useLogin } from '../../hooks/auth/useLogin';
 import { LoginFormData } from '../../types/loginTypes';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/auth/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {

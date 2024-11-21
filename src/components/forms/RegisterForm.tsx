@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { registerFormSchema } from './validations/registerFormSchema';
 import { RegisterFormDataProps } from './validations/registerFormSchema';
 import ExtraDetails from './components/ExtraDetails';
-import { useRegister, RegisterFormData } from '../../hooks/useRegister';
+import { useRegister, RegisterFormData } from '../../hooks/auth/useRegister';
 
 const RegisterForm = () => {
   const {

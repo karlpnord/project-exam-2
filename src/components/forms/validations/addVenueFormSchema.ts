@@ -1,11 +1,11 @@
 import * as yup from 'yup';
 
 export interface AddVenueFormProps {
-  url?: string;
   name: string;
   description: string;
   price: number;
   maxGuests: number;
+  url?: string;
   wifi?: boolean;
   parking?: boolean;
   breakfast?: boolean;

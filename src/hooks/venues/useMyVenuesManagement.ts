@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { VenueData } from '../types/venueTypes';
+import { VenueData } from '../../types/venueTypes';
 import { useDeleteVenue } from './useDeleteVenue';
-import { usePostsAuthenticated } from './usePostsAuthenticated';
+import { useVenuesAuthenticated } from './useVenuesAuthenticated';
 
-export const useVenueManagement = (
+export const useMyVenuesManagement = (
   apiUrl: string,
   accessToken: string | undefined
 ) => {
@@ -19,7 +19,7 @@ export const useVenueManagement = (
   const [notificationText, setNotificationText] = useState<string | null>(null);
   const [updateSuccess, setUpdateSuccess] = useState(false);
 
-  const { data, isSuccess, isLoading } = usePostsAuthenticated(
+  const { data, isSuccess, isLoading } = useVenuesAuthenticated(
     apiUrl,
     accessToken
   );

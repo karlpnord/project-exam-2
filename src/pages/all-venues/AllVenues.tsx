@@ -1,10 +1,10 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
 import Loader from '../../utils/Loader';
-import { useInfiniteVenues } from '../../hooks/useInfiniteVenues';
+import { useInfiniteVenues } from '../../hooks/venues/useInfiniteVenues';
 import { useState } from 'react';
 import SearchForm from '../../components/forms/SearchForm';
 import VenueList from '../../components/all-venues/VenueList';
-import { useObserverInfiniteScrolling } from '../../hooks/useObserverInfiniteScrolling';
+import { useObserverInfiniteScrolling } from '../../hooks/venues/useObserverInfiniteScrolling';
 import { useSearchFilteredVenues } from '../../hooks/useSearchFilteredVenues';
 
 const AllVenues = () => {
