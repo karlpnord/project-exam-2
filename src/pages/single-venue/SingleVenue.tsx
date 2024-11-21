@@ -1,10 +1,10 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
 import { useParams } from 'react-router-dom';
-import { useSingleVenue } from '../../hooks/useSingleVenue';
+import { useSingleVenue } from '../../hooks/venues/useSingleVenue';
 import Loader from '../../utils/Loader';
 import SingleVenueCard from '../../components/single-venue/SingleVenueCard';
 import SingleVenueDescription from '../../components/single-venue/SingleVenueDescription';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/auth/useAuth';
 import UserError from '../../utils/UserError';
 import BookingForm from '../../components/forms/BookingForm';
 

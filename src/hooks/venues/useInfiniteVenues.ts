@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { ApiResponse } from '../types/venueTypes';
+import { ApiResponse } from '../../types/venueTypes';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 

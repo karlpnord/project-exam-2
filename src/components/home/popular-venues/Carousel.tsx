@@ -2,7 +2,7 @@ import useMeasure from 'react-use-measure';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from './Card';
-import { usePosts } from '../../../hooks/usePosts';
+import { useVenues } from '../../../hooks/venues/useVenues';
 import { VenueData } from '../../../types/venueTypes';
 import Loader from '../../../utils/Loader';
 import PrevNextButtons from './PrevNextButtons';
@@ -24,7 +24,7 @@ const Carousel = () => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
 
-  const { data, isLoading, isSuccess } = usePosts(
+  const { data, isLoading, isSuccess } = useVenues(
     `${apiBaseUrl}/venues?_owner=true`
   );
 

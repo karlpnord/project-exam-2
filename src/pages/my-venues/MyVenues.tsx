@@ -1,5 +1,5 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/auth/useAuth';
 import MyVenuesContent from '../../components/my-venues/MyVenuesContent';
 import UserError from '../../utils/UserError';
 

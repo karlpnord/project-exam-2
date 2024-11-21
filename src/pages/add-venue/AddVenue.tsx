@@ -1,6 +1,6 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
 import AddVenueForm from '../../components/forms/AddVenueForm';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/auth/useAuth';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {

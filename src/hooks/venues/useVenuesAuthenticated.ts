@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export const usePostsAuthenticated = (
+export const useVenuesAuthenticated = (
   url: string,
   token: string | undefined
 ) => {

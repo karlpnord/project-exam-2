@@ -2,7 +2,7 @@ import { LoginResponseData as User } from '../../types/loginTypes';
 import UserInfo from './profile-tab/UserInfo';
 import Banner from './profile-tab/Banner';
 import PersonalInformation from './profile-tab/PersonalInformation';
-import { useUserProfile } from '../../hooks/useUserProfile';
+import { useUserProfile } from '../../hooks/profile/useUserProfile';
 import Loader from '../../utils/Loader';
 import EditButton from '../buttons/EditButton';
 

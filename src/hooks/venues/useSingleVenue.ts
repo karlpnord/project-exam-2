@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { SingleVenueResponse } from '../types/venueTypes';
+import { SingleVenueResponse } from '../../types/venueTypes';
 
 export const useSingleVenue = (url: string) => {
   return useQuery<SingleVenueResponse>({

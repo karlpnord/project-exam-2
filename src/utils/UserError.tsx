@@ -37,15 +37,15 @@ const UserError = ({ user, loginErrorMsg, venueManagerErrorMsg }: Props) => {
             <MdError size={48} />
           </div>
           <p className="text-center mb-6 font-medium">{loginErrorMsg}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-2">
+          <div className="flex justify-center gap-2">
             <Link to="/sign-in">
-              <DefaultNoBg className="bg-error text-errorContent px-6 hover:bg-red-700">
+              <DefaultNoBg className="bg-error text-errorContent px-8 hover:bg-red-700">
                 Sign In
               </DefaultNoBg>
             </Link>
             <DefaultNoBg
               clickHandler={handleNavigate}
-              className="px-6 text-error"
+              className="px-8 text-error"
             >
               Go Back
             </DefaultNoBg>
@@ -57,15 +57,15 @@ const UserError = ({ user, loginErrorMsg, venueManagerErrorMsg }: Props) => {
             <MdError size={48} />
           </div>
           <p className="text-center mb-6 font-medium">{venueManagerErrorMsg}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-2">
+          <div className="flex justify-center gap-2">
             <Link to="/profile/settings">
-              <DefaultNoBg className="bg-error text-errorContent px-6 hover:bg-red-700">
+              <DefaultNoBg className="bg-error text-errorContent px-8 hover:bg-red-700">
                 Profile Settings
               </DefaultNoBg>
             </Link>
             <DefaultNoBg
               clickHandler={handleNavigate}
-              className="px-6 text-error"
+              className="px-8 text-error"
             >
               Go Back
             </DefaultNoBg>

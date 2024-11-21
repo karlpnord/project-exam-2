@@ -1,17 +1,26 @@
 import { useMemo } from 'react';
 import { AddVenueProps } from '../types/addVenueTypes';
 import { AddVenueFormProps } from '../components/forms/validations/addVenueFormSchema';
+import { DeepPartial } from 'react-hook-form';
 
-export const useTransformFormData = (data: AddVenueFormProps) => {
-  const media = data.url ? [{ url: data.url, alt: data.name }] : [];
+export const useTransformFormData = (data: DeepPartial<AddVenueFormProps>) => {
+  const media = data.url ? [{ url: data.url, alt: data.name || '' }] : [];
 
   const formData = useMemo((): AddVenueProps => {
     return {
-      name: data.name,
-      description: data.description,
-      media: media,
-      price: Number(data.price),
-      maxGuests: Number(data.maxGuests),
+      name: data.name ? data.name : '',
+      description: data.description ? data.description : '',
+      media:
+        media.length > 0
+          ? media
+          : [
+              {
+                url: '',
+                alt: '',
+              },
+            ],
+      price: data.price ? Number(data.price) : 0,
+      maxGuests: data.maxGuests ? Number(data.maxGuests) : 0,
       meta: {
         wifi: data.wifi || false,
         parking: data.parking || false,

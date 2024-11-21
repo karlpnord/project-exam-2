@@ -2,7 +2,7 @@ import CardImage from '../../venue-card/CardImage';
 import CardInfo from '../../venue-card/CardInfo';
 import CardFacilities from '../../venue-card/CardFacilities';
 import CardRealtor from '../../venue-card/CardRealtor';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '../../../hooks/auth/useAuth';
 
 interface PreviewCardProps {
   venueData: {

@@ -1,28 +1,31 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { AddVenueProps as UpdateVenueProps } from '../types/addVenueTypes';
-import { ApiResponse } from '../types/venueTypes';
+import { UpdateUserProps, UserResponseData } from '../../types/userTypes';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-export const useUpdateVenue = (token: string | undefined) => {
+interface ApiError {
+  errors: { message: string }[];
+}
+
+export const useUpdateProfile = (token: string | undefined) => {
   const queryClient = useQueryClient();
 
   const mutationFn = async ({
-    venueId,
-    formData,
+    username,
+    updatedData,
   }: {
-    venueId: string;
-    formData: UpdateVenueProps;
+    username: string;
+    updatedData: UpdateUserProps;
   }) => {
     if (!token) {
       throw new Error('User not authenticated');
     }
 
     const response = await axios.put(
-      `${apiBaseUrl}/venues/${venueId}`,
-      formData,
+      `${apiBaseUrl}/profiles/${username}`,
+      updatedData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -34,14 +37,15 @@ export const useUpdateVenue = (token: string | undefined) => {
   };
 
   return useMutation<
-    ApiResponse,
-    Error,
-    { venueId: string; formData: UpdateVenueProps }
+    UserResponseData,
+    ApiError,
+    { username: string; updatedData: UpdateUserProps }
   >({
-    mutationKey: ['update-venue'],
+    mutationKey: ['update-profile'],
     mutationFn: mutationFn,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['my-venues'] });
+      queryClient.invalidateQueries({ queryKey: ['my-profile'] });
     },
+    retry: 0,
   });
 };

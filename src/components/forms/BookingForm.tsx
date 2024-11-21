@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Primary from '../buttons/Primary';
-import { useCreateBooking } from '../../hooks/useCreateBooking';
-import { useAuth } from '../../hooks/useAuth';
+import { useCreateBooking } from '../../hooks/bookings/useCreateBooking';
+import { useAuth } from '../../hooks/auth/useAuth';
 import { VenueData } from '../../types/venueTypes';
 import BookingCalendar from '../single-venue/BookingCalendar';
 import BookingDetails from '../single-venue/BookingDetails';

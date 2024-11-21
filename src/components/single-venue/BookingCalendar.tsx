@@ -1,5 +1,5 @@
 import Calendar from 'react-calendar';
-import { useBookedDates } from '../../hooks/useBookedDates';
+import { useBookedDates } from '../../hooks/bookings/useBookedDates';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece] | null;

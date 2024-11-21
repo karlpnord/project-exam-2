@@ -1,5 +1,5 @@
 import MaxWidthWrapper from '../../utils/MaxWidthWrapper';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/auth/useAuth';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Tabs from '../../components/profile/Tabs';
