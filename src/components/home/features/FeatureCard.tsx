@@ -18,15 +18,15 @@ const FeatureCard = ({ feature }: FeatureCardProps) => {
   return (
     <motion.div
       variants={childVariants}
-      className="flex flex-col gap-1 h-full w-[280px] md:w-[320px] bg-foreground border border-borderClr shadow-md rounded-lg p-6"
+      className='flex flex-col gap-1 h-full w-[280px] md:w-[320px] bg-foreground border border-borderClr shadow-md rounded-lg p-6'
     >
-      <div className="bg-primary p-2 w-fit rounded-md mb-1">
-        <feature.icon className="text-primaryContent" size={20} />
+      <div className='bg-primary p-2 w-fit rounded-md mb-1'>
+        <feature.icon className='text-primaryContent' size={20} />
       </div>
-      <h2 className="font-poppins font-semibold text-lg text-textDark">
+      <h2 className='font-poppins font-semibold text-lg text-textDark'>
         {feature.title}
       </h2>
-      <p className="text-textLight font-light text-xs leading-5 sm:text-sm">
+      <p className='text-textLight font-light text-xs leading-5 sm:text-sm'>
         {feature.description}
       </p>
     </motion.div>

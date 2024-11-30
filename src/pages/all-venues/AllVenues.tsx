@@ -14,6 +14,8 @@ const AllVenues = () => {
     data,
     isLoading,
     isSuccess,
+    isError,
+    error,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
@@ -29,11 +31,11 @@ const AllVenues = () => {
   const filteredVenues = useSearchFilteredVenues(data, searchValue);
 
   return (
-    <main className="flex-1">
-      <div className="bg-whiteBg font-inter">
-        <MaxWidthWrapper className="relative z-20 pb-12 pt-24 md:pb-36 md:pt-36">
-          <div className="px-2 mb-10 flex flex-col sm:flex-row sm:items-center justify-between">
-            <h1 className="text-4xl mb-2 font-bold text-textDark">
+    <main className='flex-1'>
+      <div className='bg-whiteBg font-inter'>
+        <MaxWidthWrapper className='relative z-20 pb-12 pt-24 md:pb-36 md:pt-36'>
+          <div className='px-2 mb-10 flex flex-col sm:flex-row sm:items-center justify-between'>
+            <h1 className='text-4xl mb-2 font-bold text-textDark'>
               All Venues
             </h1>
             <SearchForm
@@ -42,13 +44,16 @@ const AllVenues = () => {
             />
           </div>
           {isLoading && <Loader />}
+          {isError && <p className='text-errorContent bg-error text-sm p-3 rounded-md'>
+            {error instanceof Error ? error.message: 'An unknown error occurred'}
+          </p>}
           {isSuccess && (
             <VenueList
               venues={filteredVenues}
               lastVenueElementRef={lastVenueElementRef}
             />
           )}
-          {isFetchingNextPage && <Loader className="mt-20" />}
+          {isFetchingNextPage && <Loader className='mt-20' />}
         </MaxWidthWrapper>
       </div>
     </main>

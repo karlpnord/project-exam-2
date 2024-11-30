@@ -13,17 +13,21 @@ export const useCreateBooking = (token: string | undefined) => {
   const queryClient = useQueryClient();
 
   const mutationFn = async ({ formData }: { formData: BookingData }) => {
-    if (!token) {
-      throw new Error('User not authenticated');
+    try {
+      if (!token) {
+        throw new Error('User not authenticated');
+      }
+  
+      const response = await axios.post(`${apiBaseUrl}/bookings`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'X-Noroff-API-Key': API_KEY,
+        },
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.errors?.[0]?.message || 'An unknown error occurred');
     }
-
-    const response = await axios.post(`${apiBaseUrl}/bookings`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'X-Noroff-API-Key': API_KEY,
-      },
-    });
-    return response.data;
   };
 
   return useMutation<BookingResponse, ApiError, { formData: BookingData }>({

@@ -34,7 +34,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>
       <Input
         label={'Username'}
         id={'name'}
@@ -74,12 +74,12 @@ const RegisterForm = () => {
         error={errors.venueManager?.message}
       />
       {isError && (
-        <div className="text-errorContent bg-error text-sm p-3 rounded-md">
+        <div className='text-errorContent bg-error text-sm p-3 rounded-md'>
           Something went wrong, please try again.
         </div>
       )}
       {isSuccess && (
-        <div className="text-successContent bg-success text-sm p-3 rounded-md">
+        <div className='text-successContent bg-success text-sm p-3 rounded-md'>
           Registered successfully
         </div>
       )}

@@ -3,7 +3,7 @@ import NavLinks from './NavLinks';
 
 const Links = () => {
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center gap-2'>
       {LINKS.map((link) => (
         <NavLinks
           key={link.text}

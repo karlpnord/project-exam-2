@@ -28,7 +28,7 @@ const TabButton = ({
       className={`${baseStyles} ${hoverStyles} ${activeStyles} ${className}`}
     >
       <Icon size={18} className={active ? 'text-primary' : ''} />
-      <span className="hidden md:inline font-medium">{label}</span>
+      <span className='hidden md:inline font-medium'>{label}</span>
     </button>
   );
 };

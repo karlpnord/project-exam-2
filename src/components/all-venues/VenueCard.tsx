@@ -26,7 +26,7 @@ const VenueCard = ({
       whileHover={{
         scale: 0.97,
       }}
-      className="max-w-80 shadow-md cursor-pointer"
+      className='max-w-80 shadow-md cursor-pointer'
     >
       <Link
         to={`/venues/${venue.id}`}

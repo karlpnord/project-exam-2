@@ -27,8 +27,8 @@ const AddVenue = () => {
   const venueData = watch();
 
   return (
-    <main className="flex-1">
-      <MaxWidthWrapper className="relative z-20 pb-12 pt-24 md:pb-36 md:pt-36 w-fit max-w-[1000px]">
+    <main className='flex-1'>
+      <MaxWidthWrapper className='relative z-20 pb-12 pt-24 md:pb-36 md:pt-36 w-fit max-w-[1000px]'>
         {(!user || !user.venueManager) && (
           <UserError
             user={user}
@@ -46,15 +46,15 @@ const AddVenue = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: 'easeInOut ' }}
           >
-            <PageHeader heading="Add Your Venue" />
-            <div className="bg-foreground border border-borderClr mt-12 p-4 md:p-8 rounded-md shadow-md overflow-hidden flex flex-col gap-12 lg:flex-row">
+            <PageHeader heading='Add Your Venue' />
+            <div className='bg-foreground border border-borderClr mt-12 p-4 md:p-8 rounded-md shadow-md overflow-hidden flex flex-col gap-12 lg:flex-row'>
               <AddVenueForm
                 register={register}
                 handleSubmit={handleSubmit}
                 errors={errors}
                 venueData={venueData}
               />
-              <div className="border border-borderClr"></div>
+              <div className='border border-borderClr'></div>
               <PreviewAddVenueForm venueData={venueData} />
             </div>
           </motion.div>

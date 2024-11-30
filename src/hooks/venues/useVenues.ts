@@ -6,8 +6,12 @@ export const useVenues = (url: string) => {
   return useQuery<ApiResponse>({
     queryKey: ['all-venues'],
     queryFn: async () => {
-      const { data } = await axios.get(url);
-      return data;
+      try {
+        const { data } = await axios.get(url);
+        return data;    
+      } catch (error: any) {
+        throw new Error(error.response?.data?.errors?.[0]?.message || 'An unknown error occurred');
+      }
     },
   });
 };

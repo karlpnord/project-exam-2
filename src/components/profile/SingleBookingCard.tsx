@@ -24,24 +24,24 @@ const SingleBookingCard = ({ data }: Props) => {
   return (
     <motion.div
       animate={viewDetails[data.id] ? 'open' : 'closed'}
-      className="flex flex-col gap-4 p-4 bg-foreground rounded-md border border-borderClr"
+      className='flex flex-col gap-4 p-4 bg-foreground rounded-md border border-borderClr'
     >
-      <div className="flex flex-col md:flex-row justify-between">
-        <h2 className="text-textDark font-semibold md:text-lg">
+      <div className='flex flex-col md:flex-row justify-between'>
+        <h2 className='text-textDark font-semibold md:text-lg'>
           {data.venue.name}
         </h2>
-        <h3 className="text-textDark font-semibold md:text-lg">
+        <h3 className='text-textDark font-semibold md:text-lg'>
           {formatDate(data.dateFrom)} - {formatDate(data.dateTo)}
         </h3>
       </div>
-      <div className="flex justify-between">
-        <h2 className="flex items-center gap-1 text-textLight text-md">
+      <div className='flex justify-between'>
+        <h2 className='flex items-center gap-1 text-textLight text-md'>
           {data.guests}
           <FaUserLarge size={14} />
         </h2>
         <button
           onClick={() => toggleViewBookings(data.id)}
-          className="flex items-center gap-1 text-primary"
+          className='flex items-center gap-1 text-primary'
         >
           View Details
           <motion.span

@@ -4,9 +4,8 @@ import { AddVenueFormProps } from '../components/forms/validations/addVenueFormS
 import { DeepPartial } from 'react-hook-form';
 
 export const useTransformFormData = (data: DeepPartial<AddVenueFormProps>) => {
-  const media = data.url ? [{ url: data.url, alt: data.name || '' }] : [];
-
   const formData = useMemo((): AddVenueProps => {
+    const media = data.url ? [{ url: data.url, alt: data.name || '' }] : [];
     return {
       name: data.name ? data.name : '',
       description: data.description ? data.description : '',
@@ -14,11 +13,11 @@ export const useTransformFormData = (data: DeepPartial<AddVenueFormProps>) => {
         media.length > 0
           ? media
           : [
-              {
-                url: '',
-                alt: '',
-              },
-            ],
+            {
+              url: '',
+              alt: '',
+            },
+          ],
       price: data.price ? Number(data.price) : 0,
       maxGuests: data.maxGuests ? Number(data.maxGuests) : 0,
       meta: {

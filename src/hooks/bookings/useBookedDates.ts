@@ -16,7 +16,7 @@ export const useBookedDates = (bookings: Booking[] | undefined) => {
         const startDate = new Date(dateFrom);
         const endDate = new Date(dateTo);
 
-        let currentDate = startDate;
+        const currentDate = startDate;
         while (currentDate <= endDate) {
           allBookedDates.push(new Date(currentDate));
           currentDate.setDate(currentDate.getDate() + 1);

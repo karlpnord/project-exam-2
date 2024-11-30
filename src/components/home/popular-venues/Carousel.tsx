@@ -58,14 +58,14 @@ const Carousel = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-defaultBg py-24 font-inter"
+      className='relative overflow-hidden bg-defaultBg py-24 font-inter'
       ref={ref}
     >
-      <div className="relative z-20 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="mb-12">
-            <div className="space-y-3 flex justify-center">
-              <h2 className="text-4xl font-bold text-textDark">
+      <div className='relative z-20 overflow-hidden'>
+        <div className='mx-auto max-w-7xl px-4 md:px-8'>
+          <div className='mb-12'>
+            <div className='space-y-3 flex justify-center'>
+              <h2 className='text-4xl font-bold text-textDark'>
                 Popular Venues
               </h2>
             </div>
@@ -81,7 +81,7 @@ const Carousel = () => {
               transition={{
                 ease: 'easeInOut',
               }}
-              className="grid"
+              className='grid'
               style={{
                 gridTemplateColumns: `repeat(${CARDS_AMOUNT}, 1fr)`,
               }}
@@ -90,7 +90,7 @@ const Carousel = () => {
                 <Card
                   key={venue.id}
                   data={venue}
-                  className="shrink-0"
+                  className='shrink-0'
                   style={{
                     width: CARD_WIDTH,
                     marginRight: MARGIN,

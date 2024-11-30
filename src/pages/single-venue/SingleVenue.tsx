@@ -18,16 +18,16 @@ const SingleVenue = () => {
   const { user } = useAuth();
 
   return (
-    <main className="flex-1 font-inter">
-      <MaxWidthWrapper className="flex flex-col gap-8 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
+    <main className='flex-1 font-inter'>
+      <MaxWidthWrapper className='flex flex-col gap-8 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]'>
         {isLoading && <Loader />}
 
         {isSuccess && data && (
           <>
-            <h1 className="font-bold text-5xl text-textDark text-center lg:col-span-2">
+            <h1 className='font-bold text-5xl text-textDark text-center lg:col-span-2'>
               {data.data.name}
             </h1>
-            <div className="flex flex-col items-center">
+            <div className='flex flex-col items-center'>
               <SingleVenueCard venue={data.data} />
               <SingleVenueDescription desc={data.data.description} />
             </div>

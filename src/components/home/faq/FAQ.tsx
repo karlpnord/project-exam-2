@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import Question from './Question';
 import faqData from './faqData';
 import { useState } from 'react';
@@ -15,8 +16,8 @@ const FAQ = () => {
   };
 
   return (
-    <section className="px-4 py-20 font-inter">
-      <div className="mx-auto max-w-3xl">
+    <section className='px-4 py-20 font-inter'>
+      <div className='mx-auto max-w-3xl'>
         <SectionHeading
           heading={'Frequently Asked Questions'}
           subheading={

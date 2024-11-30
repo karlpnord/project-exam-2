@@ -19,7 +19,7 @@ const NavLinks = ({ children, href, FlyoutContent }: Props) => {
     <div
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
-      className="relative h-fit w-fit"
+      className='relative h-fit w-fit'
     >
       <NavLink
         to={href}
@@ -43,7 +43,7 @@ const NavLinks = ({ children, href, FlyoutContent }: Props) => {
             exit={{ opacity: 0, y: 15 }}
             style={{ translateX: '-50%' }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute left-1/2 top-12 bg-foreground text-textDark shadow-md rounded-md"
+            className='absolute left-1/2 top-12 bg-foreground text-textDark shadow-md rounded-md'
           >
             <FlyoutContent />
           </motion.div>

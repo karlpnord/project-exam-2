@@ -7,16 +7,20 @@ export const useUserProfile = (url: string, token: string | undefined) => {
   return useQuery({
     queryKey: ['my-profile'],
     queryFn: async () => {
-      if (!token) {
-        throw new Error('User not authenticated');
+      try {
+        if (!token) {
+          throw new Error('User not authenticated');
+        }
+        const { data } = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'X-Noroff-API-Key': API_KEY,
+          },
+        });
+        return data;
+      } catch (error: any) {
+        throw new Error(error.response?.data?.errors?.[0]?.message || 'An unknown error occurred');
       }
-      const { data } = await axios.get(url, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'X-Noroff-API-Key': API_KEY,
-        },
-      });
-      return data;
     },
   });
 };

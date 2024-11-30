@@ -22,7 +22,7 @@ const MyVenuesList = ({
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.3, ease: 'easeInOut' }}
-    className="flex flex-col gap-8 items-center mt-12"
+    className='flex flex-col gap-8 items-center mt-12'
   >
     {venues.map((venue: VenueData) => (
       <MyVenuesCard

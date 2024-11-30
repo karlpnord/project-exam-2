@@ -11,21 +11,21 @@ const NavCTAs = ({ setOpen }: Props) => {
   const logout = useLogout();
 
   const handleLogout = () => {
-    setOpen && setOpen(false);
+    if (setOpen) setOpen(false);
     logout();
   };
 
   const handleClick = () => {
-    setOpen && setOpen(false);
+    if (setOpen) setOpen(false);
   };
 
   return (
-    <div className="flex items-center gap-3 font-inter">
+    <div className='flex items-center gap-3 font-inter'>
       {user ? (
         <Link
-          to="/"
+          to='/'
           onClick={handleLogout}
-          className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition"
+          className='bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition'
         >
           Logout
         </Link>
@@ -33,15 +33,15 @@ const NavCTAs = ({ setOpen }: Props) => {
         <>
           <Link
             onClick={handleClick}
-            to="/sign-up"
-            className="bg-whiteBg text-secondary px-6 py-2 rounded-md hover:bg-defaultBg transition"
+            to='/sign-up'
+            className='bg-whiteBg text-secondary px-6 py-2 rounded-md hover:bg-[#ececec] transition'
           >
             Sign up
           </Link>
           <Link
             onClick={handleClick}
-            to="/sign-in"
-            className="bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition"
+            to='/sign-in'
+            className='bg-secondary text-secondaryContent px-6 py-2 rounded-md hover:bg-secondaryDark transition'
           >
             Sign in
           </Link>

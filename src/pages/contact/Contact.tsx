@@ -12,11 +12,11 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeInOut' }}
-      className="flex-1 font-inter"
+      className='flex-1 font-inter'
     >
-      <MaxWidthWrapper className="pt-24 md:pt-36 max-w-[1200px]">
-        <div className="flex flex-col items-center">
-          <FaBed size={48} className="text-textDark" />
+      <MaxWidthWrapper className='pt-24 md:pt-36 max-w-[1200px]'>
+        <div className='flex flex-col items-center'>
+          <FaBed size={48} className='text-textDark' />
           <SectionHeading
             heading={'Contact our friendly team'}
             subheading={'Let us know how we can help you.'}

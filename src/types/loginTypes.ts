@@ -5,7 +5,7 @@ export interface LoginFormData {
 
 export interface LoginResponse {
   data: LoginResponseData;
-  meta: Record<string, any>;
+  meta: Record<string, never>;
 }
 
 export interface LoginResponseData {

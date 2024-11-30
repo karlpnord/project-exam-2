@@ -5,7 +5,7 @@ import ScrollToTop from '../utils/ScrollToTop';
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-whiteBg">
+    <div className='flex flex-col min-h-screen bg-whiteBg'>
       <ScrollToTop />
       <Header />
       <Outlet />

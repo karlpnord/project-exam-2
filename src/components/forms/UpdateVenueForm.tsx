@@ -74,10 +74,10 @@ const UpdateVenueForm = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-8 max-w-[600px] pr-4"
+      className='flex flex-col gap-8 max-w-[600px] pr-4'
     >
       <RequiredFields register={register} errors={errors} />
-      <div className="border border-borderClr"></div>
+      <div className='border border-borderClr'></div>
       <OptionalFields
         register={register}
         errors={errors}
@@ -90,7 +90,7 @@ const UpdateVenueForm = ({
 };
 
 const ErrorMessage = ({ message }: { message: string }) => (
-  <p className="text-error mt-4">
+  <p className='text-error mt-4'>
     <FiAlertCircle size={24} />
     {message}. Please try again!
   </p>
@@ -103,11 +103,11 @@ const FormActions = ({
   closeModal: () => void;
   isExiting: (value: boolean) => void;
 }) => (
-  <div className="flex gap-4 mt-2">
-    <Primary type="submit">Update Venue</Primary>
+  <div className='flex gap-4 mt-2'>
+    <Primary type='submit'>Update Venue</Primary>
     <button
-      type="button"
-      className="bg-whiteBg text-textDark px-4 py-2 rounded-md text-lg font-medium font-inter hover:bg-defaultBg transition-all"
+      type='button'
+      className='bg-whiteBg text-textDark px-4 py-2 rounded-md text-lg font-medium font-inter hover:bg-defaultBg transition-all'
       onClick={() => {
         closeModal();
         isExiting(true);

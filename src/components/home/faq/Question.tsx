@@ -16,11 +16,11 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
   return (
     <motion.div
       animate={openId === id ? 'open' : 'closed'}
-      className="border-b-[1px] border-borderClr font-inter"
+      className='border-b-[1px] border-borderClr font-inter'
     >
       <button
         onClick={() => handler(id)}
-        className="flex w-full items-center justify-between gap-4 py-6"
+        className='flex w-full items-center justify-between gap-4 py-6'
       >
         <motion.span
           variants={{
@@ -31,7 +31,7 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
               color: '#262626',
             },
           }}
-          className="text-left text-lg font-medium"
+          className='text-left text-lg font-medium'
         >
           {title}
         </motion.span>
@@ -47,7 +47,7 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
             },
           }}
         >
-          <FiChevronDown className="text-2xl text-textDark" />
+          <FiChevronDown className='text-2xl text-textDark' />
         </motion.span>
       </button>
       <motion.div
@@ -56,7 +56,7 @@ const Question = ({ id, title, children, handler, openId }: QuestionsProps) => {
           height: openId === id ? height : '0px',
           marginBottom: openId === id ? '24px' : '0px',
         }}
-        className="overflow-hidden text-textLight"
+        className='overflow-hidden text-textLight'
       >
         <span ref={ref}>{children}</span>
       </motion.div>

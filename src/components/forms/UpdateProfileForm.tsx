@@ -40,32 +40,32 @@ const UpdateProfileForm = ({
   return (
     <form
       onSubmit={handleSubmit(() => onSubmit(formData))}
-      className="flex flex-col gap-3 bg-foreground p-4"
+      className='flex flex-col gap-3 bg-foreground p-4'
     >
-      <h2 className="font-bold">Profile Settings</h2>
+      <h2 className='font-bold'>Profile Settings</h2>
       <Input
-        label="Avatar URL"
-        id="avatar"
-        type="url"
-        placeholder="Enter avatar url"
+        label='Avatar URL'
+        id='avatar'
+        type='url'
+        placeholder='Enter avatar url'
         register={register('avatar')}
         error={errors.avatar?.message}
         hidden={false}
       />
       <Input
-        label="Banner URL"
-        id="banner"
-        type="url"
-        placeholder="Enter banner url"
+        label='Banner URL'
+        id='banner'
+        type='url'
+        placeholder='Enter banner url'
         register={register('banner')}
         error={errors.banner?.message}
         hidden={false}
       />
       <Input
-        label="Bio"
-        id="bio"
-        type="text"
-        placeholder="Enter bio"
+        label='Bio'
+        id='bio'
+        type='text'
+        placeholder='Enter bio'
         register={register('bio')}
         error={errors.bio?.message}
         hidden={false}
@@ -78,8 +78,8 @@ const UpdateProfileForm = ({
         error={errors.venueManager?.message}
         labelStyle={'text-sm text-textDark font-semibold'}
       />
-      {customFormError && <p className="text-error">{customFormError}</p>}
-      <Primary type="submit" className="md:max-w-fit">
+      {customFormError && <p className='text-error'>{customFormError}</p>}
+      <Primary type='submit' className='md:max-w-fit'>
         Save settings
       </Primary>
     </form>

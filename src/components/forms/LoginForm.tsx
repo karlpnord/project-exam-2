@@ -45,7 +45,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>
       <Input
         label={'Email'}
         id={'email'}
@@ -62,7 +62,7 @@ const LoginForm = () => {
         register={register('password')}
         error={errors.password?.message}
       />
-      <div className="flex justify-between">
+      <div className='flex justify-between'>
         <Checkbox
           label={'Remember me'}
           id={'rememberMe'}
@@ -70,15 +70,15 @@ const LoginForm = () => {
           checked={rememberMeChecked || false}
           error={errors.rememberMe?.message}
         />
-        <p className="text-[10px] text-textLight">Forgot password?</p>
+        <p className='text-[10px] text-textLight'>Forgot password?</p>
       </div>
       {isError && (
-        <div className="text-errorContent bg-error text-sm p-3 rounded-md">
+        <div className='text-errorContent bg-error text-sm p-3 rounded-md'>
           Something went wrong, please try again.
         </div>
       )}
       {isSuccess && (
-        <div className="text-successContent bg-success text-sm p-3 rounded-md">
+        <div className='text-successContent bg-success text-sm p-3 rounded-md'>
           Logged in successfully
         </div>
       )}

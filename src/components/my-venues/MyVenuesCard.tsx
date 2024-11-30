@@ -22,7 +22,7 @@ const MyVenuesCard = ({
   handleDelete,
 }: Props) => {
   return (
-    <div className="shadow-md rounded-md overflow-hidden">
+    <div className='shadow-md rounded-md overflow-hidden'>
       <CardImage
         src={venue.media?.[0]?.url}
         alt={venue.media?.[0]?.alt}

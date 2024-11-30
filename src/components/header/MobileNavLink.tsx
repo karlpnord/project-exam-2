@@ -18,10 +18,10 @@ const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className='relative'>
       {FoldContent ? (
         <div
-          className="flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl hover:text-textDark"
+          className='flex w-full cursor-pointer items-center text-textLight justify-between border-b border-neutral-300 py-6 text-start text-xl hover:text-textDark'
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
           <NavLink
@@ -77,7 +77,7 @@ const MobileNavLink = ({ children, href, FoldContent, setMenuOpen }: Props) => {
             marginBottom: open ? '24px' : '0px',
             marginTop: open ? '12px' : '0px',
           }}
-          className="overflow-hidden"
+          className='overflow-hidden'
         >
           <div ref={ref}>
             <FoldContent setMenuOpen={setMenuOpen} />

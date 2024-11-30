@@ -19,8 +19,8 @@ const Navbar = () => {
       transition-all duration-300 ease-out lg:px-12
       ${scrolled ? 'bg-whiteBg py-3 shadow-xl' : 'bg-whiteBg py-6 shadow-none'}`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between">
-        <div className="hidden lg:flex lg:justify-between lg:w-full">
+      <div className='mx-auto flex max-w-[1400px] items-center justify-between'>
+        <div className='hidden lg:flex lg:justify-between lg:w-full'>
           <Logo />
           <Links />
           <NavCTAs />
