@@ -24,8 +24,8 @@ const Profile = () => {
   };
 
   return (
-    <main className="flex-1 font-inter">
-      <MaxWidthWrapper className="flex flex-col gap-8 px-0 sm:px-6 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
+    <main className='flex-1 font-inter'>
+      <MaxWidthWrapper className='flex flex-col gap-8 px-0 sm:px-6 pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]'>
         {!user && (
           <UserError
             user={user}
@@ -35,21 +35,21 @@ const Profile = () => {
           />
         )}
         {user && (
-          <div className="flex flex-col border border-borderClr rounded-md overflow-hidden">
-            <div className="flex flex-col w-full bg-foreground text-textDark p-4 border-b border-borderClr">
+          <div className='flex flex-col border border-borderClr rounded-md overflow-hidden'>
+            <div className='flex flex-col w-full bg-foreground text-textDark p-4 border-b border-borderClr'>
               <Logo />
-              <h2 className="font-bold text-lg text-textLight">
+              <h2 className='font-bold text-lg text-textLight'>
                 {user.name}'s profile
               </h2>
             </div>
-            <div className="flex">
+            <div className='flex'>
               <Tabs activeTab={activeTab} clickHandler={clickHandler} />
               <motion.div
                 key={activeTab}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="col-span-full flex-grow bg-foreground"
+                className='col-span-full flex-grow bg-foreground'
               >
                 {activeTab === 'profile' && (
                   <ProfileTabContent

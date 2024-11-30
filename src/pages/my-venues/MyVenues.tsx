@@ -7,8 +7,8 @@ const MyVenues = () => {
   const { user } = useAuth();
 
   return (
-    <main className="flex-1">
-      <MaxWidthWrapper className="pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]">
+    <main className='flex-1'>
+      <MaxWidthWrapper className='pb-12 pt-24 md:pb-36 md:pt-36 max-w-[1000px]'>
         {(!user || !user.venueManager) && (
           <UserError
             user={user}

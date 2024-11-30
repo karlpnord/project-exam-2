@@ -23,11 +23,11 @@ const AddVenueForm: FC<FormProps> = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-8 max-w-[600px]"
+      className='flex flex-col gap-8 max-w-[600px]'
     >
       <RequiredFields register={register} errors={errors} />
 
-      <div className="border border-borderClr" />
+      <div className='border border-borderClr' />
 
       <OptionalFields
         register={register}
@@ -35,10 +35,10 @@ const AddVenueForm: FC<FormProps> = ({
         venueData={venueData}
       />
 
-      <Primary type="submit">Submit Venue</Primary>
+      <Primary type='submit'>Submit Venue</Primary>
 
       {isError && (
-        <div className="text-errorContent bg-error text-sm p-3 rounded-md">
+        <div className='text-errorContent bg-error text-sm p-3 rounded-md'>
           {`${errorMessage}! Please go to profile settings to become a venue manager!`}
         </div>
       )}

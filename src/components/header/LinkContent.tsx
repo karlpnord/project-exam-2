@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   FaHouse,
   FaHouseChimneyMedical,
@@ -17,11 +18,11 @@ const VenueContent = ({ setMenuOpen }: Props) => {
   };
 
   return (
-    <div className="w-full p-4 shadow-none border-b border-borderClr lg:w-[250px] lg:shadow-md lg:border-0">
-      <div className="grid grid-cols-2 lg:grid-cols-1">
-        <div className="space-y-2">
+    <div className='w-full p-4 shadow-none border-b border-borderClr lg:w-[250px] lg:shadow-md lg:border-0'>
+      <div className='grid grid-cols-2 lg:grid-cols-1'>
+        <div className='space-y-2'>
           <NavLink
-            to="/all-venues"
+            to='/all-venues'
             onClick={handleClick}
             className={({ isActive }) => {
               return (
@@ -37,7 +38,7 @@ const VenueContent = ({ setMenuOpen }: Props) => {
             All Venues
           </NavLink>
           <NavLink
-            to="/my-venues"
+            to='/my-venues'
             onClick={handleClick}
             className={({ isActive }) => {
               return (
@@ -53,7 +54,7 @@ const VenueContent = ({ setMenuOpen }: Props) => {
             My Venues
           </NavLink>
           <NavLink
-            to="/add-venue"
+            to='/add-venue'
             onClick={handleClick}
             className={({ isActive }) => {
               return (

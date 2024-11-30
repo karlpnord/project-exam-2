@@ -29,12 +29,12 @@ const PreviewAddVenueForm = ({ venueData }: PreviewCardProps) => {
   const userEmail = user ? user.email : 'Unknown Email';
 
   return (
-    <div className="max-w-80">
-      <h2 className="text-xl font-medium text-textLight mb-4">
+    <div className='max-w-80'>
+      <h2 className='text-xl font-medium text-textLight mb-4'>
         Preview of your venue
       </h2>
-      <div className="shadow-md">
-        <CardImage src={cardImage} alt="alt" />
+      <div className='shadow-md'>
+        <CardImage src={cardImage} alt='alt' />
         <CardInfo
           city={venueData.city || 'Unknown'}
           country={venueData.country || 'Unknown'}
@@ -53,10 +53,10 @@ const PreviewAddVenueForm = ({ venueData }: PreviewCardProps) => {
         />
         <CardRealtor name={userName} email={userEmail} />
       </div>
-      <h2 className="text-xl font-medium text-textLight mt-4">
+      <h2 className='text-xl font-medium text-textLight mt-4'>
         Venue Description
       </h2>
-      <p className="text-textLighter w-fit">
+      <p className='text-textLighter w-fit'>
         {venueData.description ? venueData.description : 'No description'}
       </p>
     </div>

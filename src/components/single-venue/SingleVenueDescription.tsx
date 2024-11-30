@@ -12,17 +12,17 @@ const SingleVenueDescription = ({ desc }: Props) => {
 
   return (
     <>
-      <div className="w-[320px] md:w-[500px] p-4 mt-8 bg-foreground rounded-md">
-        <h2 className="uppercase text-sm font-bold text-textDark">
+      <div className='w-[320px] md:w-[500px] p-4 mt-8 bg-foreground rounded-md'>
+        <h2 className='uppercase text-sm font-bold text-textDark'>
           About this venue
         </h2>
-        <p className="text-textLight">{truncateText(desc, 180)}</p>
+        <p className='text-textLight'>{truncateText(desc, 180)}</p>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center text-textDark font-semibold underline mt-2"
+          className='flex items-center text-textDark font-semibold underline mt-2'
         >
           Read more
-          <FaAngleRight size={14} className="mb-[-2px]" />
+          <FaAngleRight size={14} className='mb-[-2px]' />
         </button>
       </div>
       {isModalOpen && (

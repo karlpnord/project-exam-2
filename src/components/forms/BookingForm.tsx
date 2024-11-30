@@ -73,8 +73,8 @@ const BookingForm = ({ data }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-[320px] md:w-[500px] mx-auto">
-      <div className="flex flex-col gap-4 bg-foreground rounded-md p-4 mb-8">
+    <form onSubmit={handleSubmit} className='w-[320px] md:w-[500px] mx-auto'>
+      <div className='flex flex-col gap-4 bg-foreground rounded-md p-4 mb-8'>
         <BookingCalendar
           startDate={startDate}
           setStartDate={setStartDate}
@@ -91,13 +91,13 @@ const BookingForm = ({ data }: Props) => {
         />
 
         {error && (
-          <div className="flex items-center gap-2 bg-error text-errorContent p-3 rounded-md">
+          <div className='flex items-center gap-2 bg-error text-errorContent p-3 rounded-md'>
             <FiAlertCircle size={20} />
             {error}
           </div>
         )}
 
-        <Primary className="w-full" type={'submit'}>
+        <Primary className='w-full' type={'submit'}>
           Book now
         </Primary>
 

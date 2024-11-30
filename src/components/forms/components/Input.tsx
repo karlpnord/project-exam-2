@@ -20,7 +20,7 @@ const Input = ({
   hidden = true,
 }: InputProps) => {
   return (
-    <div className="flex-1">
+    <div className='flex-1'>
       <label
         htmlFor={id}
         className={hidden ? 'hidden' : 'text-textDark font-semibold text-sm'}
@@ -34,7 +34,7 @@ const Input = ({
         placeholder={placeholder}
         {...register}
       />
-      {error && <p className="text-error text-xs mt-1">{error}</p>}
+      {error && <p className='text-error text-xs mt-1'>{error}</p>}
     </div>
   );
 };

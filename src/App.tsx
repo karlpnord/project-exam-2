@@ -14,18 +14,18 @@ import Profile from './pages/profile/Profile';
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/all-venues" element={<AllVenues />} />
-        <Route path="/sign-up" element={<Register />} />
-        <Route path="/sign-in" element={<Login />} />
-        <Route path="/add-venue" element={<AddVenue />} />
-        <Route path="/my-venues" element={<MyVenues />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/venues/:venueId" element={<SingleVenue />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/:tab" element={<Profile />} />
+        <Route path='/all-venues' element={<AllVenues />} />
+        <Route path='/sign-up' element={<Register />} />
+        <Route path='/sign-in' element={<Login />} />
+        <Route path='/add-venue' element={<AddVenue />} />
+        <Route path='/my-venues' element={<MyVenues />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/venues/:venueId' element={<SingleVenue />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile/:tab' element={<Profile />} />
       </Route>
     </Routes>
   );

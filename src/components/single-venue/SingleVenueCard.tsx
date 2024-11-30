@@ -12,7 +12,7 @@ const SingleVenueCard = ({ venue }: Props) => {
   return (
     <div
       key={venue.id}
-      className="shadow-md rounded-md overflow-hidden max-w-[500px]"
+      className='shadow-md rounded-md overflow-hidden max-w-[500px]'
     >
       <CardImage
         src={venue.media?.[0]?.url}

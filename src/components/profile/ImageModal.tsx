@@ -23,7 +23,7 @@ const ImageModal = ({ src, setImageModalOpen }: Props) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           onClick={closeModal}
-          className="fixed inset-0 z-90 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center cursor-pointer font-inter"
+          className='fixed inset-0 z-90 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center cursor-pointer font-inter'
         >
           <motion.figure
             initial={{ scale: 0.9, opacity: 0 }}
@@ -31,11 +31,11 @@ const ImageModal = ({ src, setImageModalOpen }: Props) => {
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-foreground rounded-md overflow-hidden cursor-default relative z-100 max-w-[600px]"
+            className='bg-foreground rounded-md overflow-hidden cursor-default relative z-100 max-w-[600px]'
           >
             <img
               onClick={closeModal}
-              className="w-full h-full object-cover cursor-pointer"
+              className='w-full h-full object-cover cursor-pointer'
               src={src}
             />
           </motion.figure>

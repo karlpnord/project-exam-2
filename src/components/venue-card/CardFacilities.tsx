@@ -15,24 +15,24 @@ interface Props {
 const CardFacilities = ({ meta, maxGuests }: Props) => {
   const icons: React.ReactNode[] = [];
 
-  meta.wifi && icons.push(<FaWifi key={'wifi'} />);
-  meta.parking && icons.push(<FaSquareParking key={'parking'} />);
-  meta.breakfast && icons.push(<FaUtensils key={'breakfast'} />);
-  meta.pets && icons.push(<FaDog key={'pets'} />);
+  if (meta.wifi) icons.push(<FaWifi key='wifi' />);
+  if (meta.parking) icons.push(<FaSquareParking key='parking' />);
+  if (meta.breakfast) icons.push(<FaUtensils key='breakfast' />);
+  if (meta.pets) icons.push(<FaDog key='pets' />);
 
   return (
-    <div className="px-4 py-3 border-b border-borderClr bg-foreground">
-      <div className="flex justify-between items-center">
-        <div className="flex text-textLight gap-2">
+    <div className='px-4 py-3 border-b border-borderClr bg-foreground'>
+      <div className='flex justify-between items-center'>
+        <div className='flex text-textLight gap-2'>
           {icons.length > 0 ? (
             <>{icons}</>
           ) : (
-            <div className="text-xs">No facilities</div>
+            <div className='text-xs'>No facilities</div>
           )}
         </div>
-        <div className="flex items-center gap-1 text-textDark">
-          <span className="text-textLight text-sm">{maxGuests}</span>
-          <FaUserLarge className="text-textLight" />
+        <div className='flex items-center gap-1 text-textDark'>
+          <span className='text-textLight text-sm'>{maxGuests}</span>
+          <FaUserLarge className='text-textLight' />
         </div>
       </div>
     </div>

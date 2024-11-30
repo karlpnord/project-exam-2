@@ -38,9 +38,9 @@ const MyVenuesContent = ({ user }: Props) => {
 
   return (
     <>
-      <PageHeader heading="My Venues" />
+      <PageHeader heading='My Venues' />
 
-      {isLoading && <Loader className="mt-12" />}
+      {isLoading && <Loader className='mt-12' />}
 
       {isSuccess && (
         <>
@@ -79,7 +79,7 @@ const MyVenuesContent = ({ user }: Props) => {
 
       {updateSuccess && (
         <SuccessNotification
-          text="Venue updated successfully!"
+          text='Venue updated successfully!'
           removeNotif={() => setUpdateSuccess(false)}
         />
       )}

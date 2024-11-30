@@ -14,7 +14,7 @@ const PrevNextButtons = ({
   onClickNext,
 }: Props) => {
   return (
-    <div className="flex items-center justify-center gap-2 mt-10">
+    <div className='flex items-center justify-center gap-2 mt-10'>
       <button
         className={`rounded-md border-[1px] border-borderClr bg-foreground p-2.5 text-2xl transition-opacity ${
           shiftLeft ? '' : 'opacity-30'

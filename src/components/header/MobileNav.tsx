@@ -9,10 +9,10 @@ import Logo from './Logo';
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="w-full block lg:hidden">
-      <div className="flex justify-between">
+    <div className='w-full block lg:hidden'>
+      <div className='flex justify-between'>
         <Logo />
-        <button onClick={() => setOpen(true)} className="block text-3xl">
+        <button onClick={() => setOpen(true)} className='block text-3xl'>
           <FiMenu />
         </button>
       </div>
@@ -23,15 +23,15 @@ const MobileNav = () => {
             animate={{ x: 0 }}
             exit={{ x: '100vw' }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="fixed z-100 left-0 top-0 flex h-screen w-full flex-col bg-whiteBg"
+            className='fixed z-100 left-0 top-0 flex h-screen w-full flex-col bg-whiteBg'
           >
-            <div className="flex items-center justify-between p-6">
+            <div className='flex items-center justify-between p-6'>
               <Logo />
               <button onClick={() => setOpen(false)}>
-                <FiX className="text-3xl text-neutral-950" />
+                <FiX className='text-3xl text-neutral-950' />
               </button>
             </div>
-            <div className="h-screen bg-whiteBg p-6">
+            <div className='h-screen bg-whiteBg p-6'>
               {LINKS.map((link) => (
                 <MobileNavLink
                   key={link.text}
@@ -43,7 +43,7 @@ const MobileNav = () => {
                 </MobileNavLink>
               ))}
             </div>
-            <div className="flex justify-end bg-whiteBg p-6">
+            <div className='flex justify-end bg-whiteBg p-6'>
               <NavCTAs setOpen={setOpen} />
             </div>
           </motion.nav>

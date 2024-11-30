@@ -5,11 +5,11 @@ import LogoColumn from './LogoColumn';
 
 const Footer = () => {
   return (
-    <footer className="relative z-50 overflow-hidden py-12 bg-defaultBg font-inter border-t border-borderClr">
-      <MaxWidthWrapper className="relative z-50 grid grid-cols-12 gap-x-1.5 gap-y-6">
+    <footer className='relative z-50 overflow-hidden py-12 bg-defaultBg font-inter border-t border-borderClr'>
+      <MaxWidthWrapper className='relative z-50 grid grid-cols-12 gap-x-1.5 gap-y-6'>
         <LogoColumn />
         <GenericColumn
-          title="Explore Holidaze"
+          title='Explore Holidaze'
           links={[
             {
               title: 'Home',
@@ -34,7 +34,7 @@ const Footer = () => {
           ]}
         />
         <GenericColumn
-          title="Company Info"
+          title='Company Info'
           links={[
             {
               title: 'About us',
@@ -59,7 +59,7 @@ const Footer = () => {
           ]}
         />
         <GenericColumn
-          title="Socials"
+          title='Socials'
           links={[
             {
               title: 'Twitter',
@@ -79,7 +79,7 @@ const Footer = () => {
           ]}
         />
         <GenericColumn
-          title="Contact us"
+          title='Contact us'
           links={[
             {
               title: 'Email: support@holidaze.com',

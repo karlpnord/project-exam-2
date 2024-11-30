@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { UpdateUserProps, UserResponseData } from '../../types/userTypes';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -23,17 +23,28 @@ export const useUpdateProfile = (token: string | undefined) => {
       throw new Error('User not authenticated');
     }
 
-    const response = await axios.put(
-      `${apiBaseUrl}/profiles/${username}`,
-      updatedData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'X-Noroff-API-Key': API_KEY,
-        },
+    try {
+      const response = await axios.put(
+        `${apiBaseUrl}/profiles/${username}`,
+        updatedData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'X-Noroff-API-Key': API_KEY,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError<ApiError>;
+        const message =
+          axiosError.response?.data?.errors?.[0]?.message ||
+          'An unknown error occurred';
+        throw new Error(message);
       }
-    );
-    return response.data;
+      throw new Error('Network or unexpected error occurred');
+    }
   };
 
   return useMutation<

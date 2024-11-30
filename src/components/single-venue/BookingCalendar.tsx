@@ -41,7 +41,7 @@ const BookingCalendar = ({
 
   return (
     <Calendar
-      locale="en-gb"
+      locale='en-gb'
       onChange={handleDateChange}
       value={[startDate, endDate].filter(Boolean) as [Date, Date]}
       selectRange={true}

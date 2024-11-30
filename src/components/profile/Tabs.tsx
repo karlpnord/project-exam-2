@@ -31,7 +31,7 @@ const Tabs = ({ activeTab, clickHandler }: Props) => {
   const logout = useLogout();
 
   return (
-    <div className="flex flex-col gap-1 max-w-max border-r border-borderClr bg-defaultBg text-textLight p-2">
+    <div className='flex flex-col gap-1 max-w-max border-r border-borderClr bg-defaultBg text-textLight p-2'>
       {TABS.map((tab) => (
         <TabButton
           key={tab.id}
@@ -45,7 +45,7 @@ const Tabs = ({ activeTab, clickHandler }: Props) => {
       <TabButton
         onClick={logout}
         icon={FaArrowRightToBracket}
-        label="Log out"
+        label='Log out'
       />
     </div>
   );
