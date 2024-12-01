@@ -1,21 +1,19 @@
-###### E-Commerce Storefront Using React
+###### Holidaze: Project Exam 2
 
 ### Introduction
-This project is part of a course assignment during my Front-End Development studies at Noroff, where the goal is to apply my knowledge of React to build a fully functional e-commerce store. The application allows users to browse products, search for products, a fully functional cart and complete a purchase process. Throughout this project, I focused on implementing key React concepts such as component-based architecture, state management using useState and useReducer, and context management using useContext. Additionally, the project incoroporates API integration, responsive design, and a streamlined user interface to create a seamless shopping experience.
+Welcome to Holidaze, the final project for my Front-End Development studies at Noroff! This application is an Airbnb-inspired platform designed to simplify venue management and bookings for travelers and venue managers alike. Holidaze offers an intuitive and user-friendly interface, built with modern front-end technologies, to enhance the experience of both travelers and hosts.
 
 ## Screenshot
 
 ![Screenshot of the application](./src/assets/Screenshot.jpg)
 
 ### Features
-- Browse products with search input
-- Add and remove items from cart
-- Change quantity of items in cart
-- View total price and number of items in cart
-- Modal confirmations
-- API integration for fetching products and singleproduct
-- Responsive design for mobile, tablet and desktop
-- Dark and Light mode
+- User Registration & Authentication: Create an account or log in to access personalized features.
+- Browse & Search Venues: Explore various venues with detailed information and images.
+- Add & Manage Venues: Venue managers can list new venues and manage existing ones.
+- Booking System: Seamlessly book your favorite venues with just a few clicks.
+- User Profile Management: Update personal details, view booking history, and manage your venues.
+- My Venues & My Bookings: Easily access your listed venues or upcoming reservations in dedicated sections.
 
 ### Technologies Used
 - **React**: Core framework for building the user interface.
