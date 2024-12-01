@@ -1,15 +1,12 @@
 import { Booking } from '../../types/venueTypes';
-import useFormatDate from '../../hooks/useFormatDate';
 import { FaUserLarge } from 'react-icons/fa6';
+import { formatDate } from '../../utils/utils';
 
 interface Props {
   bookings: Booking[] | undefined;
 }
 
 const CardBookings = ({ bookings }: Props) => {
-  const dateFrom = useFormatDate(bookings?.[0].dateFrom);
-  const dateTo = useFormatDate(bookings?.[0].dateTo);
-
   return (
     <div className='bg-foreground border-t border-borderClr font-inter'>
       {bookings?.length === 0 ? (
@@ -32,8 +29,8 @@ const CardBookings = ({ bookings }: Props) => {
             </div>
             <div>
               <h2 className='text-textDark font-semibold text-sm'>
-                {dateFrom} -{' '}
-                {dateTo}
+                {formatDate(booking.dateFrom)} -{' '}
+                {formatDate(booking.dateTo)}
               </h2>
               <h2 className='flex items-center gap-1 text-textLight text-sm md:justify-self-end'>
                 {booking.guests}
