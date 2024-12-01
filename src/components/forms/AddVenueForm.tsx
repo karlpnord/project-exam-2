@@ -39,7 +39,7 @@ const AddVenueForm: FC<FormProps> = ({
 
       {isError && (
         <div className='text-errorContent bg-error text-sm p-3 rounded-md'>
-          {`${errorMessage}! Please go to profile settings to become a venue manager!`}
+          {`${errorMessage}!`}
         </div>
       )}
 

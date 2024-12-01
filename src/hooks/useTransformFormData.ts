@@ -5,19 +5,13 @@ import { DeepPartial } from 'react-hook-form';
 
 export const useTransformFormData = (data: DeepPartial<AddVenueFormProps>) => {
   const formData = useMemo((): AddVenueProps => {
-    const media = data.url ? [{ url: data.url, alt: data.name || '' }] : [];
+    const media = data.url && data.url.trim() ? 
+      [{ url: data.url, alt: data.name || '' }] : 
+      [];
     return {
       name: data.name ? data.name : '',
       description: data.description ? data.description : '',
-      media:
-        media.length > 0
-          ? media
-          : [
-            {
-              url: '',
-              alt: '',
-            },
-          ],
+      media,
       price: data.price ? Number(data.price) : 0,
       maxGuests: data.maxGuests ? Number(data.maxGuests) : 0,
       meta: {
